@@ -1,19 +1,23 @@
-<h2>Trend</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Keyword</th>
-      <th scope="col">Tweet Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @trends.each.with_index(1) do |trend, i| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= link_to trend.name, trend.url, target: '_blank' %></td>
-        <td><%= trend.tweet_volume %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="card">
+  <h2 class="card-header">Trend</h2>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Keyword</th>
+          <th scope="col">Tweet Volume</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @trends.each.with_index(1) do |trend, i| %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td><%= link_to trend.name, trend.url, target: '_blank' %></td>
+            <td><%= trend.tweet_volume %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
