@@ -1,0 +1,35 @@
+<div class="media">
+  <img src="https://pbs.twimg.com/profile_images/1217102670705524736/OwV2JC5B.jpg" class="mr-3 img-thumbnail" width="150">
+  <div class="media-body">
+    <h3>
+      よっぴ
+      <small class="text-muted">@ytkg_dev</small>
+    </h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Follows Count</h4>
+            <p class="card-text text-right"><%= @user_summary.friends_count %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Followers Count</h4>
+            <p class="card-text text-right"><%= @user_summary.followers_count %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Tweets Count</h4>
+            <p class="card-text text-right"><%= @user_summary.statuses_count %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
