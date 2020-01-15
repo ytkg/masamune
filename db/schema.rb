@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_124316) do
+ActiveRecord::Schema.define(version: 2020_01_15_131446) do
+
+  create_table "trends", force: :cascade do |t|
+    t.date "result_date"
+    t.string "name"
+    t.text "url"
+    t.integer "tweet_volume"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "user_summaries", force: :cascade do |t|
     t.date "result_date"
