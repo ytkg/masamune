@@ -4,6 +4,10 @@ class TwitterApiService
       client.user(1216390208209293313)
     end
 
+    def fetch_trends
+      client.trends(23424856).attrs[:trends]
+    end
+
     private
 
     def client
