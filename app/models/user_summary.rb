@@ -1,0 +1,2 @@
+class UserSummary < ApplicationRecord
+end
