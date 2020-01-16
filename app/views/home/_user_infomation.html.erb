@@ -9,7 +9,7 @@
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Follows Count</h4>
+            <h4 class="card-title">フォロー数</h4>
             <p class="card-text text-right"><%= @user_summaries.last.friends_count %></p>
           </div>
         </div>
@@ -17,7 +17,7 @@
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Followers Count</h4>
+            <h4 class="card-title">フォロワー数</h4>
             <p class="card-text text-right"><%= @user_summaries.last.followers_count %></p>
           </div>
         </div>
@@ -25,12 +25,12 @@
       <div class="col-sm-4">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Tweets Count</h4>
+            <h4 class="card-title">ツイート数</h4>
             <p class="card-text text-right"><%= @user_summaries.last.statuses_count %></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="text-muted text-right">Last Updated: <%= @user_summaries.last.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
+    <div class="text-muted text-right">最終更新日時: <%= @user_summaries.last.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
   </div>
 </div>
