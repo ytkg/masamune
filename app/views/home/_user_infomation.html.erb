@@ -10,7 +10,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Follows Count</h4>
-            <p class="card-text text-right"><%= @user_summary.friends_count %></p>
+            <p class="card-text text-right"><%= @user_summaries.last.friends_count %></p>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Followers Count</h4>
-            <p class="card-text text-right"><%= @user_summary.followers_count %></p>
+            <p class="card-text text-right"><%= @user_summaries.last.followers_count %></p>
           </div>
         </div>
       </div>
@@ -26,11 +26,11 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Tweets Count</h4>
-            <p class="card-text text-right"><%= @user_summary.statuses_count %></p>
+            <p class="card-text text-right"><%= @user_summaries.last.statuses_count %></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="text-muted text-right">Last Updated: <%= @user_summary.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
+    <div class="text-muted text-right">Last Updated: <%= @user_summaries.last.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
   </div>
 </div>
