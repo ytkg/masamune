@@ -1,6 +1,9 @@
 <div class="card">
-  <h3 class="card-header">Followers Count History</h3>
+  <h3 class="card-header">Followers & Follows Count History</h3>
   <div class="card-body">
-    <%= line_chart UserSummary.group(:result_date).sum(:followers_count) %>
+    <%= line_chart [
+      { name: 'follows count', data: @user_summaries.map { |it| [it.result_date, it.friends_count] } },
+      { name: 'followers count', data: @user_summaries.map { |it| [it.result_date, it.followers_count] } },
+    ] %>
   </div>
 </div>
