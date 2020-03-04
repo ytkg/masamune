@@ -8,6 +8,10 @@ class TwitterApiService
       client.trends(23424856).attrs[:trends]
     end
 
+    def fetch_friend_ids
+      client.friend_ids.take(10000)
+    end
+
     private
 
     def client
