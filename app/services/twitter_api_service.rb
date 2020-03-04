@@ -4,6 +4,10 @@ class TwitterApiService
       client.user(1216390208209293313)
     end
 
+    def fetch_users_by_keyword_search(keyword)
+      client.search(keyword).take(3000).map(&:user).uniq
+    end
+
     def fetch_trends
       client.trends(23424856).attrs[:trends]
     end
