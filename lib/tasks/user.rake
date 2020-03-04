@@ -1,6 +1,7 @@
 namespace :user do
   task follow: :environment do
-    exit if rand(1..12) != 1
+    followed_users_count = FollowedUser.where('created_at >= ?', 3.hour.ago).count
+    exit if rand(1..followed_users_count) != 1
 
     friend_ids = TwitterApiService.fetch_friend_ids
     friend_ids.each do |friend_id|
