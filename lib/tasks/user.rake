@@ -10,6 +10,7 @@ namespace :user do
 
     twitter_ids = FollowedUser.pluck(:twitter_id)
     count = 0
+    limit_count = rand(5..12)
     users = TwitterApiService.fetch_users_by_keyword_search('#プロスピA')
     users.each do |user|
       next if twitter_ids.include?(user.id)
@@ -19,8 +20,9 @@ namespace :user do
 
       TwitterApiService.follow(user)
       count += 1
+      sleep rand(1.0..8.0)
 
-      break if count == 12
+      break if count >= limit_count
     end
 
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("#{count}人をフォローしました")
