@@ -17,13 +17,13 @@ namespace :user do
       next if user.followers_count < 50
       next if user.description.exclude?('プロスピ')
 
-      Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("screen_name: #{user.screen_name}, friends_count: #{user.friends_count}, followers_count: #{user.followers_count}")
+      TwitterApiService.follow(user)
       count += 1
 
       break if count == 12
     end
 
-    Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("#{count}人を擬似フォローしました")
+    Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("#{count}人をフォローしました")
   rescue => e
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping(e)
   end

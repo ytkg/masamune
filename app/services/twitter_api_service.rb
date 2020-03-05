@@ -16,6 +16,10 @@ class TwitterApiService
       client.friend_ids.take(10000)
     end
 
+    def follow(user)
+      client.follow(user)
+    end
+
     private
 
     def client
