@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_140538) do
+ActiveRecord::Schema.define(version: 2020_03_06_163721) do
 
   create_table "followed_users", force: :cascade do |t|
     t.integer "twitter_id"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 2020_01_26_140538) do
     t.integer "friends_count"
     t.integer "followers_count"
     t.integer "statuses_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "screen_name"
+    t.integer "statuses_count", default: 0
+    t.integer "friends_count", default: 0
+    t.integer "followers_count", default: 0
+    t.integer "listed_count", default: 0
+    t.integer "favourites_count", default: 0
+    t.boolean "is_follower", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
