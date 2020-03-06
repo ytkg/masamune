@@ -6,7 +6,7 @@ namespace :user do
     end
 
     followed_users_count = FollowedUser.where('created_at >= ?', 3.hour.ago).count
-    exit if rand(0..followed_users_count+1) != 1
+    exit if rand(0..followed_users_count+5) != 1
 
     twitter_ids = FollowedUser.pluck(:twitter_id)
     count = 0
