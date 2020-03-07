@@ -5,6 +5,19 @@ namespace :user do
       FollowedUser.find_or_create_by(twitter_id: friend_id)
     end
 
+    twitter_users = TwitterApiService.fetch_users(friend_ids)
+    twitter_users.each do |twitter_user|
+      user = User.find_or_initialize_by(id: twitter_user.id)
+      user.update(
+        screen_name: twitter_user.screen_name,
+        statuses_count: twitter_user.statuses_count,
+        friends_count: twitter_user.friends_count,
+        followers_count: twitter_user.followers_count,
+        listed_count: twitter_user.listed_count,
+        favourites_count: twitter_user.favourites_count
+      )
+    end
+
     followed_users_count = FollowedUser.where('created_at >= ?', 3.hour.ago).count
     exit if rand(0..followed_users_count+5) != 1
 
