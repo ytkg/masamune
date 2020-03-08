@@ -1,2 +1,0 @@
-class FollowedUser < ApplicationRecord
-end
