@@ -1,10 +1,6 @@
 namespace :user do
   task follow: :environment do
     friend_ids = TwitterApiService.fetch_friend_ids
-    friend_ids.each do |friend_id|
-      FollowedUser.find_or_create_by(twitter_id: friend_id)
-    end
-
     twitter_users = TwitterApiService.fetch_users(friend_ids)
     twitter_users.each do |twitter_user|
       user = User.find_or_initialize_by(id: twitter_user.id)
@@ -18,15 +14,15 @@ namespace :user do
       )
     end
 
-    followed_users_count = FollowedUser.where('created_at >= ?', 3.hour.ago).count
+    followed_users_count = User.where('created_at >= ?', 3.hour.ago).count
     exit if rand(0..followed_users_count+5) != 1
 
-    twitter_ids = FollowedUser.pluck(:twitter_id)
+    followed_user_ids = User.ids
     count = 0
     limit_count = rand(5..12)
     users = TwitterApiService.fetch_users_by_keyword_search('#プロスピA')
     users.each do |user|
-      next if twitter_ids.include?(user.id)
+      next if followed_user_ids.include?(user.id)
       next if user.friends_count < 50
       next if user.followers_count < 50
       next if user.description.exclude?('プロスピ')
