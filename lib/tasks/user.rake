@@ -15,7 +15,7 @@ namespace :user do
     end
 
     followed_users_count = User.where('created_at >= ?', 3.hour.ago).count
-    exit if rand(0..followed_users_count+5) != 1
+    exit if rand(0..followed_users_count+2) != 1
 
     followed_user_ids = User.ids
     count = 0
