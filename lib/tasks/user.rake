@@ -25,6 +25,7 @@ namespace :user do
       next if followed_user_ids.include?(user.id)
       next if user.friends_count < 50
       next if user.followers_count < 50
+      next if user.followers_count.to_f / user.friends_count > 1.6
       next if user.description.exclude?('プロスピ')
 
       TwitterApiService.follow(user)
