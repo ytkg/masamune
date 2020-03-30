@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_152312) do
+ActiveRecord::Schema.define(version: 2020_03_30_160220) do
 
   create_table "trends", force: :cascade do |t|
     t.date "result_date"
     t.string "name"
     t.text "url"
     t.integer "tweet_volume"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.datetime "tweeted_at"
+    t.text "text"
+    t.integer "retweet_count", default: 0
+    t.integer "favorite_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
