@@ -8,6 +8,10 @@ class TwitterApiService
       client.users(ids)
     end
 
+    def fetch_tweets
+      client.user_timeline(count: 200)
+    end
+
     def fetch_users_by_keyword_search(keyword)
       client.search(keyword).take(3000).map(&:user).uniq
     end
