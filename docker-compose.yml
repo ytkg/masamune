@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/masamune
       - bundle_vol:/usr/local/bundle
+    env_file:
+      - .env
     ports:
       - "3000:3000"
     depends_on:
