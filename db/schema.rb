@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_03_30_162934) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "trends", force: :cascade do |t|
     t.date "result_date"
     t.string "name"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_162934) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tweets", force: :cascade do |t|
+  create_table "tweets", id: :bigint, default: nil, force: :cascade do |t|
     t.datetime "tweeted_at"
     t.text "text"
     t.integer "retweet_count", default: 0
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_162934) do
     t.integer "favorite_count"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :bigint, default: nil, force: :cascade do |t|
     t.string "screen_name"
     t.integer "statuses_count", default: 0
     t.integer "friends_count", default: 0

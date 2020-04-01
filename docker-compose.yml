@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/masamune
+      - bundle_vol:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data
+volumes:
+  bundle_vol:
+    driver: local
+  postgres_vol:
+    driver: local
