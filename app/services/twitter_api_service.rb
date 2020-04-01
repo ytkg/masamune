@@ -1,7 +1,7 @@
 class TwitterApiService
   class << self
     def fetch_user
-      client.user(1216390208209293313)
+      client.user
     end
 
     def fetch_users(ids)
