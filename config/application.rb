@@ -26,7 +26,5 @@ module Masamune
       g.helper false
       g.test_framework false
     end
-
-    Dotenv::Railtie.load unless Rails.env.production?
   end
 end
