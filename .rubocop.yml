@@ -1,0 +1,14 @@
+require:
+  - rubocop-rails
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - config/**/*
+    - node_modules/**/*
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
