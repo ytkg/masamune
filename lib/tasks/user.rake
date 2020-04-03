@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :user do
   task follow: :environment do
     friend_ids = TwitterApiService.fetch_friend_ids
@@ -14,8 +16,8 @@ namespace :user do
       )
     end
 
-    followed_users_count = User.where('created_at >= ?', 3.hour.ago).count
-    exit if rand(0..followed_users_count+2) != 1
+    followed_users_count = User.where('created_at >= ?', 3.hours.ago).count
+    exit if rand(0..followed_users_count + 2) != 1
 
     followed_user_ids = User.ids
     count = 0
@@ -36,7 +38,7 @@ namespace :user do
     end
 
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("#{count}人をフォローしました")
-  rescue => e
+  rescue StandardError => e
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping(e)
   end
 end

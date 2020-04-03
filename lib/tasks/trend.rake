@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :trend do
   task fetch: :environment do
     trends = TwitterApiService.fetch_trends

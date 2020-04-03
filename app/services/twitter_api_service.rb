@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TwitterApiService
   class << self
     def fetch_user
