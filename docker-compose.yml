@@ -8,6 +8,8 @@ services:
       - bundle_vol:/usr/local/bundle
     env_file:
       - .env
+    environment:
+      TZ: "Asia/Tokyo"
     ports:
       - "3000:3000"
     depends_on:
