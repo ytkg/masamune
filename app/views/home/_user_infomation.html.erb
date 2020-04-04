@@ -1,9 +1,9 @@
 <div class="media">
-  <img src="https://pbs.twimg.com/profile_images/1217102670705524736/OwV2JC5B.jpg" class="mr-3 img-thumbnail" width="150">
+  <img src="<%= @user_summaries.last.profile_image_url_https&.sub('_normal', '') %>" class="mr-3 img-thumbnail" width="150">
   <div class="media-body">
     <h3>
-      よっぴ
-      <small class="text-muted">@ytkg_dev</small>
+      <%= @user_summaries.last.name %>
+      <small class="text-muted">@<%= @user_summaries.last.screen_name %></small>
     </h3>
     <div class="row">
       <div class="col-lg col-md-4 mb-2">
