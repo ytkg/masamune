@@ -1,5 +1,5 @@
 <div class="card">
-  <h3 class="card-header">フォロー数・フォロワー数推移</h3>
+  <h5 class="card-header">フォロー数・フォロワー数推移</h5>
   <div class="card-body">
     <%= line_chart [
       { name: 'フォロー数', data: @user_summaries.map { |it| [it.result_date, it.friends_count] } },

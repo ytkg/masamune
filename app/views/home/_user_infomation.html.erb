@@ -1,52 +1,50 @@
 <div class="media">
-  <img src="<%= @user_summaries.last.profile_image_url_https&.sub('_normal', '') %>" class="mr-3 img-thumbnail" width="150">
+  <img src="<%= @user_summaries.last.profile_image_url_https&.sub('_normal', '') %>" class="mr-3 img-thumbnail" width="80">
   <div class="media-body">
-    <h3>
-      <%= @user_summaries.last.name %>
-      <small class="text-muted">@<%= @user_summaries.last.screen_name %></small>
-    </h3>
-    <div class="row">
-      <div class="col-lg col-md-4 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">フォロー数</h6>
-            <p class="card-text text-right"><%= @user_summaries.last.friends_count %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-md-4 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">フォロワー数</h6>
-            <p class="card-text text-right"><%= @user_summaries.last.followers_count %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-md-4 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">ツイート数</h6>
-            <p class="card-text text-right"><%= @user_summaries.last.statuses_count %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-md-4 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">被RT数</h6>
-            <p class="card-text text-right"><%= @user_summaries.last.retweet_count %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg col-md-4 mb-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">被いいね数</h6>
-            <p class="card-text text-right"><%= @user_summaries.last.favorite_count %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-muted text-right">最終更新日時: <%= @user_summaries.last.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
+    <h3><%= @user_summaries.last.name %></h3>
+    <p class="text-muted">@<%= @user_summaries.last.screen_name %></p>
   </div>
 </div>
+<div class="row pt-2">
+  <div class="col-lg col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">ツイート数</h6>
+        <p class="card-text text-right"><%= @user_summaries.last.statuses_count %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">フォロー数</h6>
+        <p class="card-text text-right"><%= @user_summaries.last.friends_count %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">フォロワー数</h6>
+        <p class="card-text text-right"><%= @user_summaries.last.followers_count %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">被RT数</h6>
+        <p class="card-text text-right"><%= @user_summaries.last.retweet_count %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg col-md-4 mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">被いいね数</h6>
+        <p class="card-text text-right"><%= @user_summaries.last.favorite_count %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-muted text-right">最終更新日時: <%= @user_summaries.last.updated_at.strftime('%Y/%m/%d %H:%M') %></div>
