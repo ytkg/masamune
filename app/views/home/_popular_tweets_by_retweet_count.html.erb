@@ -1,0 +1,13 @@
+<div class="card">
+  <h5 class="card-header">人気ツイート（RT数順）</h5>
+  <div class="card-body row">
+    <% @popular_tweets_by_retweet_count.each do |popular_tweet| %>
+      <div class="col-lg-4 col-md-6">
+        <blockquote class="twitter-tweet">
+          <a href="https://twitter.com/ytkg_dev/status/<%= popular_tweet.id %>?ref_src=twsrc%5Etfw"></a>
+        </blockquote>
+      </div>
+    <% end %>
+  </div>
+</div>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
