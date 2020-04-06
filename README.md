@@ -94,9 +94,9 @@ $ git merge upstream/master
 $ docker-compose run web rails db:create db:migrate db:seed
 ```
 
-## Deployment on heroku
+## Herokuにデプロイする方法
 ```
-# One time only
+# 最初に１回のみ実行
 heroku create [applicatin name]
 heroku config:add TZ=Asia/Tokyo
 heroku config:set TWITTER_API_CONSUMER_KEY="TWITTER_API_CONSUMER_KEY"
@@ -106,5 +106,4 @@ heroku config:set TWITTER_API_ACCESS_TOKEN_SECRET="TWITTER_API_ACCESS_TOKEN_SECR
 heroku config:set SLACK_WEBHOOK_URL="SLACK_WEBHOOK_URL"
 
 git push heroku master
-heroku run rails db:migrate
 ```
