@@ -1,6 +1,39 @@
 # frozen_string_literal: true
 
 namespace :user do
+  task fetch: :environment do
+    friend_ids    = TwitterApiService.fetch_friend_ids
+    twitter_users = TwitterApiService.fetch_users(friend_ids)
+    twitter_users.each do |twitter_user|
+      user = User.find_or_initialize_by(id: twitter_user.id)
+      user.update(
+        screen_name:      twitter_user.screen_name,
+        statuses_count:   twitter_user.statuses_count,
+        friends_count:    twitter_user.friends_count,
+        followers_count:  twitter_user.followers_count,
+        listed_count:     twitter_user.listed_count,
+        favourites_count: twitter_user.favourites_count,
+        is_friend:        true,
+        followed:         true
+      )
+    end
+
+    follower_ids  = TwitterApiService.fetch_follower_ids
+    twitter_users = TwitterApiService.fetch_users(follower_ids)
+    twitter_users.each do |twitter_user|
+      user = User.find_or_initialize_by(id: twitter_user.id)
+      user.update(
+        screen_name:      twitter_user.screen_name,
+        statuses_count:   twitter_user.statuses_count,
+        friends_count:    twitter_user.friends_count,
+        followers_count:  twitter_user.followers_count,
+        listed_count:     twitter_user.listed_count,
+        favourites_count: twitter_user.favourites_count,
+        is_follower:      true,
+      )
+    end
+  end
+
   task follow: :environment do
     friend_ids = TwitterApiService.fetch_friend_ids
     twitter_users = TwitterApiService.fetch_users(friend_ids)
