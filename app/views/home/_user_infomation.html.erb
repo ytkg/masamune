@@ -1,11 +1,4 @@
-<div class="media">
-  <img src="<%= @user_summaries.last&.profile_image_url_https&.sub('_normal', '') %>" class="mr-3 img-thumbnail" width="80">
-  <div class="media-body">
-    <h3><%= @user_summaries.last&.name %></h3>
-    <p class="text-muted">@<%= @user_summaries.last&.screen_name %></p>
-  </div>
-</div>
-<div class="row pt-2">
+<div class="row">
   <div class="col-lg col-md-4 mb-2">
     <div class="card">
       <div class="card-body">

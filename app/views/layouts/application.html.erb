@@ -24,6 +24,11 @@
               <%= active_link_to '分析', '/analytics/followers', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
             </li>
           </ul>
+          <p class="text-white mb-0">
+            <%= image_tag @user&.profile_image_url_https.to_s, class: 'border border-white rounded', width: 35 %>
+            <%= @user&.name %>
+            <small class="text-white-50">@<%= @user&.screen_name %></small>
+          </p>
         </div>
       </div>
     </nav>
