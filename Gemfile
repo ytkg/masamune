@@ -29,6 +29,7 @@ gem 'pg'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'active_link_to'
 
 gem 'chartkick'
 gem 'slack-notifier'

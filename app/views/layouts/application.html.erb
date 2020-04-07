@@ -15,6 +15,16 @@
     <nav class='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
       <div class='container'>
         <a class='navbar-brand' href='/'>MASAMUNE</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= active_link_to 'ホーム', '/', class: 'nav-link', active: :exclusive, wrap_tag: :li, wrap_class: 'nav-item' %>
+            </li>
+            <li class="nav-item">
+              <%= active_link_to '分析', '/analytics/followers', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <%= yield %>
