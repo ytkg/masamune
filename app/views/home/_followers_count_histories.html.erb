@@ -1,9 +1,9 @@
 <div class="card">
   <h5 class="card-header">フォロー数・フォロワー数推移</h5>
   <div class="card-body">
-    <%= line_chart [
-      { name: 'フォロー数', data: @user_summaries.map { |it| [it.result_date, it.friends_count] } },
-      { name: 'フォロワー数', data: @user_summaries.map { |it| [it.result_date, it.followers_count] } },
-    ] %>
+    <%= area_chart [
+      { name: 'フォロー数', data: @user_summaries.map { |it| [it.result_date, it.friends_count] }, points: false },
+      { name: 'フォロワー数', data: @user_summaries.map { |it| [it.result_date, it.followers_count] }, points: false },
+    ], colors: ['#3da9fc70', '#ef456570'] %>
   </div>
 </div>

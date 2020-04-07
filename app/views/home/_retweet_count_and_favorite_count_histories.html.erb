@@ -2,8 +2,8 @@
   <h5 class="card-header">被RT数・被いいね数推移</h5>
   <div class="card-body">
     <%= line_chart [
-      { name: '被RT数', data: @user_summaries.map { |it| [it.result_date, it.retweet_count] } },
-      { name: '被いいね数', data: @user_summaries.map { |it| [it.result_date, it.favorite_count] } },
-    ] %>
+      { name: '被RT数', data: @user_summaries.map { |it| [it.result_date, it.retweet_count] }, points: false },
+      { name: '被いいね数', data: @user_summaries.map { |it| [it.result_date, it.favorite_count] }, points: false },
+    ], colors: ['#00ebc7', '#FF3761'] %>
   </div>
 </div>
