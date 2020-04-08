@@ -2,6 +2,8 @@
 
 namespace :user do
   task fetch: :environment do
+    User.all.update_all(is_follower: false, is_friend: false)
+
     friend_ids    = TwitterApiService.fetch_friend_ids
     twitter_users = TwitterApiService.fetch_users(friend_ids)
     twitter_users.each do |twitter_user|
