@@ -30,6 +30,10 @@ class TwitterApiService
       client.follow(user)
     end
 
+    def unfollow(user)
+      client.unfollow(user)
+    end
+
     private
 
     def client
