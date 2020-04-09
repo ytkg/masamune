@@ -1,4 +1,5 @@
 FROM ruby:2.6.6
+ENV LANG C.UTF-8
 
 RUN apt update -qq && apt install -y nodejs yarnpkg postgresql-client
 RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
