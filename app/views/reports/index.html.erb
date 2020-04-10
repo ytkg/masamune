@@ -1,0 +1,30 @@
+<div class="container">
+  <h4>レポート</h4>
+  <div class="row p-2">
+    <% @tweet_by_year_month.each do |record| %>
+      <div class="col-lg-12 col-md-12 mb-4">
+        <div class="card">
+          <h5 class="card-header"><%= record.year_month.strftime('%Y年%m月') %></h5>
+          <div class="card-body">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">ツイート数</th>
+                  <th scope="col">被RT数</th>
+                  <th scope="col">被いいね数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= record.total_tweet_count %></td>
+                  <td><%= record.total_retweet_count %></td>
+                  <td><%= record.total_favorite_count %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
