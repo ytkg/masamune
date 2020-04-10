@@ -81,4 +81,9 @@ namespace :user do
   rescue StandardError => e
     Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping(e)
   end
+
+  task delete: :environment do
+    users = TwitterApiService.fetch_users(User.ids)
+    User.where.not(id: users.map(&:id)).delete_all
+  end
 end
