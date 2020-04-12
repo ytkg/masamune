@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :development do
