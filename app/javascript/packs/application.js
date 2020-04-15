@@ -21,5 +21,6 @@ require("chart.js")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap'
+import 'bootstrap-table'
 import '@fortawesome/fontawesome-free/js/all'
 import '../src/application.scss'

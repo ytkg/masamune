@@ -2,19 +2,19 @@
   <h4>ツイート</h4>
   <div class="row p-2">
     <div class="col-lg-12 col-md-12 mb-4">
-      <table class="table table-sm">
+      <table data-toggle="table" data-classes="table table-sm">
         <thead>
           <tr>
-            <th scope="col" nowrap>ツイート日</th>
-            <th scope="col" nowrap>ツイート内容</th>
-            <th scope="col" nowrap>RT数</th>
-            <th scope="col" nowrap>いいね数</th>
+            <th scope="col" data-sortable="true">ツイート日</th>
+            <th scope="col">ツイート内容</th>
+            <th scope="col" data-sortable="true">RT数</th>
+            <th scope="col" data-sortable="true">いいね数</th>
           </tr>
         </thead>
         <tbody>
           <% @tweets.each do |tweet| %>
             <tr>
-              <td nowrap><%= tweet.tweeted_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+              <td class="text-nowrap"><%= tweet.tweeted_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
               <td><%= tweet.text %></td>
               <td class="text-right"><%= tweet.retweet_count %></td>
               <td class="text-right"><%= tweet.favorite_count %></td>
