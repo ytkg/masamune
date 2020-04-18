@@ -13,6 +13,11 @@
             フォロワー <span class="badge badge-secondary"><%= @followers.length %></span>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="friend_and_follower_users-tab" data-toggle="tab" href="#friend_and_follower_users" role="tab" aria-controls="friend_and_follower_users" aria-selected="false">
+            相互フォロー <span class="badge badge-secondary"><%= @friend_and_follower_users.length %></span>
+          </a>
+        </li>
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="friends" role="tabpanel" aria-labelledby="friends-tab">
@@ -20,6 +25,9 @@
         </div>
         <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
           <%= render partial: 'user_table', locals: { users: @followers } %>
+        </div>
+        <div class="tab-pane fade" id="friend_and_follower_users" role="tabpanel" aria-labelledby="friend_and_follower_users-tab">
+          <%= render partial: 'user_table', locals: { users: @friend_and_follower_users } %>
         </div>
       </div>
     </div>
