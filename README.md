@@ -1,27 +1,13 @@
 # MASAMUNE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Twitterアカウント運用支援システム
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<a href="https://www.ruby-lang.org/en/">
+  <img src="https://img.shields.io/badge/Ruby-v2.6.6-green.svg" alt="ruby version">
+</a>
+<a href="http://rubyonrails.org/">
+  <img src="https://img.shields.io/badge/Rails-v6.0.2.2-brightgreen.svg" alt="rails version">
+</a>
 
 
 ## Git upstream の設定
