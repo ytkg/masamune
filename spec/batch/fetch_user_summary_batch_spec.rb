@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FetchUserSummaryBatch do
-  describe '.call' do
+  describe '#execute' do
     before do
       user = Twitter::User.new(JSON.parse(File.read('spec/json/user.json'), symbolize_names: true))
       fetch_user_summary_batch = described_class.new
