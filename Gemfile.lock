@@ -101,10 +101,10 @@ GEM
       request_store (>= 1.0)
     equalizer (0.0.11)
     erubi (1.9.0)
-    ffi (1.12.2)
-    ffi (1.12.2-java)
-    ffi (1.12.2-x64-mingw32)
-    ffi (1.12.2-x86-mingw32)
+    ffi (1.13.1)
+    ffi (1.13.1-java)
+    ffi (1.13.1-x64-mingw32)
+    ffi (1.13.1-x86-mingw32)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -128,10 +128,9 @@ GEM
     jaro_winkler (1.5.4-java)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.2.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.5.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -220,7 +219,7 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
-    rb-fsevent (0.10.3)
+    rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.0)
@@ -257,7 +256,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
-    ruby_dep (1.5.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -357,7 +355,7 @@ DEPENDENCIES
   chartkick
   draper
   jbuilder (~> 2.7)
-  listen (>= 3.0.5, < 3.2)
+  listen (>= 3.0.5, < 3.3)
   pg
   pry-byebug
   pry-rails
