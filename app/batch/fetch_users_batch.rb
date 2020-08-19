@@ -25,7 +25,7 @@ class FetchUsersBatch
     Twitter::FetchFollowersService.call
   end
 
-  def upsert_user(twitter_user, is_follower: false, is_friend: false, is_followed: false)
+  def upsert_user(twitter_user, is_follower: nil, is_friend: nil, is_followed: nil)
     user = User.find_or_initialize_by(id: twitter_user.id)
     user.update(
       screen_name: twitter_user.screen_name,
@@ -34,9 +34,9 @@ class FetchUsersBatch
       followers_count: twitter_user.followers_count,
       listed_count: twitter_user.listed_count,
       favourites_count: twitter_user.favourites_count,
-      is_follower: is_follower,
-      is_friend: is_friend,
-      followed: is_followed
+      is_follower: is_follower || user.is_follower,
+      is_friend: is_friend || user.is_friend,
+      followed: is_followed || user.followed
     )
   end
 end
