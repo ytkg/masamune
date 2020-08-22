@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_131054) do
+ActiveRecord::Schema.define(version: 2020_08_20_134413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_users", id: :bigint, default: nil, force: :cascade do |t|
+    t.string "screen_name", null: false
+    t.string "name", null: false
+    t.string "image_url", null: false
+    t.string "token", null: false
+    t.string "secret", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tweets", id: :bigint, default: nil, force: :cascade do |t|
     t.datetime "tweeted_at"

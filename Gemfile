@@ -34,6 +34,7 @@ gem 'active_link_to'
 gem 'chartkick'
 gem 'slack-notifier'
 gem 'twitter'
+gem 'omniauth-twitter'
 
 gem 'draper'
 
