@@ -9,27 +9,9 @@ namespace :user do
     followed_users_count = User.is_followed.where('created_at >= ?', 3.hours.ago).count
     exit if rand(0..followed_users_count + 2) != 1
 
-    followed_user_ids = User.is_followed.ids
-    count = 0
-    limit_count = rand(5..12)
-    users = TwitterApiService.fetch_users_by_keyword_search('#プロスピA')
-    users.each do |user|
-      next if followed_user_ids.include?(user.id)
-      next if user.friends_count < 50
-      next if user.followers_count < 50
-      next if user.followers_count.to_f / user.friends_count > 1.6
-      next if user.description.exclude?('プロスピ')
-
-      TwitterApiService.follow(user)
-      count += 1
-      sleep rand(1.0..8.0)
-
-      break if count >= limit_count
-    end
-
-    Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping("#{count}人をフォローしました")
+    FollowUsersBatch.new.execute
   rescue StandardError => e
-    Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL']).ping(e)
+    Slack::NotificationService.call(e)
   end
 
   task unfollow: :environment do
