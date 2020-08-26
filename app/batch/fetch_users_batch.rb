@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class FetchUsersBatch
+  def initialize(client)
+    @client = client
+  end
+
   def execute
     User.all.each { |user| user.update(is_follower: false, is_friend: false) }
 
@@ -18,11 +22,11 @@ class FetchUsersBatch
   private
 
   def fetch_friends
-    Twitter::FetchFriendsService.call
+    Twitter::FetchFriendsService.call(@client)
   end
 
   def fetch_followers
-    Twitter::FetchFollowersService.call
+    Twitter::FetchFollowersService.call(@client)
   end
 
   def upsert_user(twitter_user, is_follower: nil, is_friend: nil, is_followed: nil)

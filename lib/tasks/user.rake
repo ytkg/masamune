@@ -2,7 +2,7 @@
 
 namespace :user do
   task fetch: :environment do
-    FetchUsersBatch.new.execute
+    FetchUsersBatch.new(TwitterApi.new).execute
   end
 
   task follow: :environment do
