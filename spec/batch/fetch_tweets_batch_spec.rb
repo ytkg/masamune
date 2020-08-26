@@ -4,7 +4,7 @@ RSpec.describe FetchTweetsBatch do
   describe '#execute' do
     before do
       tweets = JSON.parse(File.read('spec/json/tweets.json'), symbolize_names: true).map{|t| Twitter::Tweet.new(t)}
-      fetch_tweets_batch = described_class.new
+      fetch_tweets_batch = described_class.new(anything)
       allow(fetch_tweets_batch).to receive(:fetch_tweets).and_return(tweets)
       fetch_tweets_batch.execute
     end

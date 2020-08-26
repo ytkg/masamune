@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FetchUsersBatch do
   describe '#execute' do
     before do
-      fetch_users_batch = described_class.new
+      fetch_users_batch = described_class.new(anything)
       friends = JSON.parse(File.read('spec/json/friends.json'), symbolize_names: true).map{|u| Twitter::User.new(u)}
       allow(fetch_users_batch).to receive(:fetch_friends).and_return(friends)
       followers = JSON.parse(File.read('spec/json/followers.json'), symbolize_names: true).map{|u| Twitter::User.new(u)}

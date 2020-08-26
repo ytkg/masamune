@@ -4,7 +4,7 @@ RSpec.describe FetchUserSummaryBatch do
   describe '#execute' do
     before do
       user = Twitter::User.new(JSON.parse(File.read('spec/json/user.json'), symbolize_names: true))
-      fetch_user_summary_batch = described_class.new
+      fetch_user_summary_batch = described_class.new(anything)
       allow(fetch_user_summary_batch).to receive(:fetch_user).and_return(user)
       fetch_user_summary_batch.execute
     end
