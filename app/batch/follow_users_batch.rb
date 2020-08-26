@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class FollowUsersBatch
+  def initialize(client)
+    @client = client
+  end
+
   def execute
     users = fetch_users_to_follow
     follow_users(users)
@@ -11,7 +15,7 @@ class FollowUsersBatch
   private
 
   def fetch_users_from_search(keyword)
-    Twitter::FetchUsersByKeywordSearchService.call(keyword)
+    Twitter::FetchUsersByKeywordSearchService.call(@client, keyword)
   end
 
   def fetch_users_to_follow
@@ -34,7 +38,7 @@ class FollowUsersBatch
 
   def follow_users(users)
     users.each do |user|
-      Twitter::FollowUserService.call(user)
+      Twitter::FollowUserService.call(@client, user)
       sleep rand(1.0..8.0)
     end
   end
