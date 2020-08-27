@@ -2,6 +2,6 @@
 
 namespace :user_summary do
   task fetch: :environment do
-    FetchUserSummaryBatch.new.execute
+    FetchUserSummaryBatch.new(TwitterApi.new).execute
   end
 end

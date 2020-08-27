@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FollowUsersBatch do
   describe '#fetch_users_to_follow' do
-    let(:follow_users_batch) { described_class.new }
+    let(:follow_users_batch) { described_class.new(anything) }
 
     before do
       users = JSON.parse(File.read('spec/json/users.json'), symbolize_names: true).map{|u| Twitter::User.new(u)}

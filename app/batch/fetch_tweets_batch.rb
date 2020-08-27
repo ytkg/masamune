@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class FetchTweetsBatch
+  def initialize(client)
+    @client = client
+  end
+
   def execute
     user_tweets = fetch_tweets
     user_tweets.each do |user_tweet|
@@ -17,6 +21,6 @@ class FetchTweetsBatch
   private
 
   def fetch_tweets
-    Twitter::FetchTweetsService.call
+    Twitter::FetchTweetsService.call(@client)
   end
 end

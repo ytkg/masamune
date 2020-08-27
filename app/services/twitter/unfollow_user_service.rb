@@ -1,6 +1,6 @@
 module Twitter
-  class UnfollowUserService < Twitter::BaseService
-    def self.call(user)
+  class UnfollowUserService 
+    def self.call(client, user)
       client.unfollow(user)
     end
   end

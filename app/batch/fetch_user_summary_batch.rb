@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class FetchUserSummaryBatch
+  def initialize(client)
+    @client = client
+  end
+
   def execute
     user = fetch_user
     user_summary = UserSummary.find_or_initialize_by(result_date: Time.zone.today)
@@ -19,6 +23,6 @@ class FetchUserSummaryBatch
   private
 
   def fetch_user
-    Twitter::FetchUserService.call
+    Twitter::FetchUserService.call(@client)
   end
 end

@@ -1,6 +1,6 @@
 module Twitter
-  class FollowUserService < Twitter::BaseService
-    def self.call(user)
+  class FollowUserService
+    def self.call(client, user)
       client.follow(user)
     end
   end

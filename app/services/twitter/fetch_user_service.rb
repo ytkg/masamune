@@ -1,6 +1,6 @@
 module Twitter
-  class FetchUserService < Twitter::BaseService
-    def self.call
+  class FetchUserService
+    def self.call(client)
       client.user
     end
   end
