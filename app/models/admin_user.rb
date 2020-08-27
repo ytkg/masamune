@@ -1,4 +1,6 @@
 class AdminUser < ApplicationRecord
+  has_many :friends
+
   def self.create_or_update_from_auth(auth)
     find_or_initialize_by(id: auth[:uid]).tap do |user|
       user.update!(
