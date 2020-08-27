@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_134413) do
+ActiveRecord::Schema.define(version: 2020_08_27_125153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 2020_08_20_134413) do
     t.text "text"
     t.integer "retweet_count", default: 0
     t.integer "favorite_count", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "twitter_users", id: :bigint, default: nil, force: :cascade do |t|
+    t.string "screen_name"
+    t.string "name"
+    t.integer "statuses_count", default: 0
+    t.integer "friends_count", default: 0
+    t.integer "followers_count", default: 0
+    t.integer "listed_count", default: 0
+    t.integer "favourites_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
