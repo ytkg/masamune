@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'database_cleaner-active_record'
+  gem "factory_bot_rails"
   gem 'rspec-rails', '~> 4.0.1'
 end
 
