@@ -46,6 +46,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'database_cleaner-active_record'
   gem 'rspec-rails', '~> 4.0.1'
 end
 
