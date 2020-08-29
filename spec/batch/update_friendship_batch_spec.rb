@@ -17,7 +17,7 @@ RSpec.describe UpdateFriendshipBatch do
   end
 
   describe '#update_followers' do
-    let(:admin_user) { create(:admin_user, :with_friend_user) }
+    let(:admin_user) { create(:admin_user, :with_follower_user) }
     let(:followers) { JSON.parse(File.read('spec/json/followers.json'), symbolize_names: true).map{ |u| Twitter::User.new(u) } }
 
     before do
