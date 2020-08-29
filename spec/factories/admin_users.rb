@@ -10,7 +10,9 @@ FactoryBot.define do
 
   trait :with_friend_user do
     after(:build) do |admin_user|
-      admin_user.friend_users << build(:twitter_user)
+      twitter_user = build(:twitter_user)
+      admin_user.friend_users << twitter_user
+      admin_user.follow_users << twitter_user
     end
   end
 

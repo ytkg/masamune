@@ -16,6 +16,7 @@ class UpdateFriendshipBatch
     friends.each do |friend|
       twitter_user = TwitterUser.update_or_create(friend)
       @admin_user.friends.find_or_create_by(twitter_user_id: twitter_user.id)
+      @admin_user.follows.find_or_create_by(twitter_user_id: twitter_user.id)
     end
     @admin_user.friends.where.not(twitter_user_id: friends.map(&:id)).delete_all
   end

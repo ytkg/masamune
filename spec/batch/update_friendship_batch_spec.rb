@@ -13,6 +13,7 @@ RSpec.describe UpdateFriendshipBatch do
     subject { admin_user.friends.pluck(:twitter_user_id) }
 
     it { expect(TwitterUser.count).to eq friends.count + 1 }
+    it { expect(admin_user.follows.count).to eq friends.count + 1 }
     it { expect(admin_user.friends.pluck(:twitter_user_id)).to match_array(friends.map(&:id)) }
   end
 
