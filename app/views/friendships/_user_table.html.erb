@@ -1,0 +1,26 @@
+<table data-toggle="table" data-classes="table table-sm">
+  <thead class="table-borderless">
+    <tr>
+      <th scope="col">ユーザー名</th>
+      <th scope="col" data-sortable="true">ツイート数</th>
+      <th scope="col" data-sortable="true">フォロー数</th>
+      <th scope="col" data-sortable="true">フォロワー数</th>
+      <th scope="col" data-sortable="true">FF比率</th>
+      <th scope="col" data-sortable="true">いいね数</th>
+      <th scope="col" data-sortable="true">リスト数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.twitter_link %></td>
+        <td class="text-right"><%= user.statuses_count %></td>
+        <td class="text-right"><%= user.friends_count %></td>
+        <td class="text-right"><%= user.followers_count %></td>
+        <td class="text-right"><%= user.ff_ratio %></td>
+        <td class="text-right"><%= user.favourites_count %></td>
+        <td class="text-right"><%= user.listed_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

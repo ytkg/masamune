@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :reports, only: [:index]
   resources :tweets, only: [:index]
   resources :users, only: [:index]
+  resources :friendships, only: [:index]
 end
