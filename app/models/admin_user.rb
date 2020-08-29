@@ -3,6 +3,8 @@ class AdminUser < ApplicationRecord
   has_many :friend_users, through: :friends, source: :twitter_user
   has_many :followers
   has_many :follower_users, through: :followers, source: :twitter_user
+  has_many :follows
+  has_many :follow_users, through: :follows, source: :twitter_user
 
   def self.create_or_update_from_auth(auth)
     find_or_initialize_by(id: auth[:uid]).tap do |user|
