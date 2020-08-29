@@ -29,12 +29,4 @@ class UpdateFriendshipBatch
     end
     @admin_user.followers.where.not(twitter_user_id: followers.map(&:id)).delete_all
   end
-
-  def fetch_friends
-    Twitter::FetchFriendsService.call(@client)
-  end
-
-  def fetch_followers
-    Twitter::FetchFollowersService.call(@client)
-  end
 end
