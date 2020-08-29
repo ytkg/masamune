@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_135107) do
+ActiveRecord::Schema.define(version: 2020_08_29_143317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 2020_08_29_135107) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_user_id"], name: "index_friends_on_admin_user_id"
     t.index ["twitter_user_id"], name: "index_friends_on_twitter_user_id"
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.bigint "admin_user_id", null: false
+    t.date "result_date"
+    t.integer "friends_count"
+    t.integer "followers_count"
+    t.integer "statuses_count"
+    t.integer "retweet_count"
+    t.integer "favorite_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_user_id"], name: "index_summaries_on_admin_user_id"
   end
 
   create_table "tweets", id: :bigint, default: nil, force: :cascade do |t|
@@ -107,4 +120,5 @@ ActiveRecord::Schema.define(version: 2020_08_29_135107) do
   add_foreign_key "follows", "twitter_users"
   add_foreign_key "friends", "admin_users"
   add_foreign_key "friends", "twitter_users"
+  add_foreign_key "summaries", "admin_users"
 end
