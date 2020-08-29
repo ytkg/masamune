@@ -1,0 +1,22 @@
+FactoryBot.define do
+  factory :admin_user do
+    sequence(:id) { |n| n }
+    sequence(:screen_name) { |n| "SCREEN_NAME#{n}"}
+    sequence(:name) { |n| "NAME#{n}"}
+    sequence(:image_url) { |n| "http://pbs.twimg.com/profile_images/#{n}/OwV2JC5B_normal.jpg"}
+    sequence(:token) { |n| "TOKEN#{n}"}
+    sequence(:secret) { |n| "SECRET#{n}"}
+  end
+
+  trait :with_friend_user do
+    after(:build) do |admin_user|
+      admin_user.friend_users << build(:twitter_user)
+    end
+  end
+
+  trait :with_follower_user do
+    after(:build) do |admin_user|
+      admin_user.friend_users << build(:twitter_user)
+    end
+  end
+end
