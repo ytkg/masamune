@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 namespace :tweet do
-  task fetch: :environment do
-    UpdateTweetBatch.new(AdminUser.find(1216390208209293313)).execute
+  task update: :environment do
+    AdminUser.all.each do |admin_user|
+      UpdateTweetBatch.new(admin_user).execute
+    rescue StandardError => e
+      Slack::NotificationService.call(e)
+    end
   end
 end
