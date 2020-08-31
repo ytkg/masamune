@@ -10,8 +10,6 @@ RSpec.describe UpdateFriendshipBatch do
       described_class.new(admin_user).send(:update_friends)
     end
 
-    subject { admin_user.friends.pluck(:twitter_user_id) }
-
     it { expect(TwitterUser.count).to eq friends.count + 1 }
     it { expect(admin_user.follows.count).to eq friends.count + 1 }
     it { expect(admin_user.friends.pluck(:twitter_user_id)).to match_array(friends.map(&:id)) }
@@ -25,8 +23,6 @@ RSpec.describe UpdateFriendshipBatch do
       allow(Twitter::FetchFollowersService).to receive(:call).and_return(followers)
       described_class.new(admin_user).send(:update_followers)
     end
-
-    subject { admin_user.followers.pluck(:twitter_user_id) }
 
     it { expect(TwitterUser.count).to eq followers.count + 1 }
     it { expect(admin_user.followers.pluck(:twitter_user_id)).to match_array(followers.map(&:id)) }
