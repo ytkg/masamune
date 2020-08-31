@@ -3,6 +3,7 @@
 namespace :user do
   task fetch: :environment do
     FetchUsersBatch.new(TwitterApi.new).execute
+    UpdateFriendshipBatch.new(AdminUser.find(1216390208209293313)).execute
   end
 
   task follow: :environment do
