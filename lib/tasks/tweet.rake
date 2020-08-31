@@ -2,6 +2,6 @@
 
 namespace :tweet do
   task fetch: :environment do
-    FetchTweetsBatch.new(TwitterApi.new).execute
+    UpdateTweetBatch.new(AdminUser.find(1216390208209293313)).execute
   end
 end
