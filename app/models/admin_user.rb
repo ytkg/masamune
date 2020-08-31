@@ -5,6 +5,7 @@ class AdminUser < ApplicationRecord
   has_many :follower_users, through: :followers, source: :twitter_user
   has_many :follows
   has_many :follow_users, through: :follows, source: :twitter_user
+  has_many :tweets
   has_many :summaries
 
   def self.create_or_update_from_auth(auth)
