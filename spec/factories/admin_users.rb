@@ -8,6 +8,12 @@ FactoryBot.define do
     sequence(:secret) { |n| "SECRET#{n}"}
   end
 
+  trait :with_tweet do
+    after(:build) do |admin_user|
+      admin_user.tweets << build(:tweet)
+    end
+  end
+
   trait :with_friend_user do
     after(:build) do |admin_user|
       twitter_user = build(:twitter_user)

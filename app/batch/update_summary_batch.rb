@@ -11,8 +11,8 @@ class UpdateSummaryBatch
       friends_count: user.friends_count,
       followers_count: user.followers_count,
       statuses_count: user.statuses_count,
-      retweet_count: Tweet.sum(:retweet_count),
-      favorite_count: Tweet.sum(:favorite_count)
+      retweet_count: @admin_user.tweets.sum(:retweet_count),
+      favorite_count: @admin_user.tweets.sum(:favorite_count)
     )
   end
 end

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UpdateSummaryBatch do
   describe '#execute' do
-    let(:admin_user) { create(:admin_user) }
-    let!(:tweet) { create(:tweet) }
+    let(:admin_user) { create(:admin_user, :with_tweet) }
     let(:user) { Twitter::User.new(JSON.parse(File.read('spec/json/user.json'), symbolize_names: true)) }
 
     before do
@@ -17,8 +16,8 @@ RSpec.describe UpdateSummaryBatch do
         friends_count: user.friends_count,
         followers_count: user.followers_count,
         statuses_count: user.statuses_count,
-        retweet_count: tweet.retweet_count,
-        favorite_count: tweet.favorite_count
+        retweet_count: admin_user.tweets.sum(:retweet_count),
+        favorite_count: admin_user.tweets.sum(:favorite_count)
       )
     }
   end
