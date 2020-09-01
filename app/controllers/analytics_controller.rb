@@ -2,7 +2,7 @@
 
 class AnalyticsController < ApplicationController
   def followers
-    users = User.is_follower
+    users = current_user.friend_users
     @tweet_charts = set_charts(users, :statuses_count)
     @follow_charts = set_charts(users, :friends_count)
     @follower_charts = set_charts(users, :followers_count)

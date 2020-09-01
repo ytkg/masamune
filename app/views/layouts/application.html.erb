@@ -24,7 +24,7 @@
               <%= active_link_to 'ツイート', '/tweets', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item', data: { turbolinks: false } %>
             </li>
             <li class="nav-item">
-              <%= active_link_to 'ユーザー', '/users', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item', data: { turbolinks: false } %>
+              <%= active_link_to 'ユーザー', '/friendships', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item', data: { turbolinks: false } %>
             </li>
             <li class="nav-item">
               <%= active_link_to 'レポート', '/reports', class: 'nav-link', wrap_tag: :li, wrap_class: 'nav-item' %>
@@ -39,11 +39,7 @@
               <%= current_user.name %>
               <small class="text-white-50">@<%= current_user.screen_name %></small>
             <% end %>
-            <% if logged_in? %>
-              <%= link_to 'ログアウト', logout_path, class: 'text-white' %>
-            <% else %>
-              <%= link_to 'ログイン', '/auth/twitter', class: 'text-white' %>
-            <% end %>
+            <%= link_to 'ログアウト', logout_path, class: 'text-white' %>
           </p>
         </div>
       </div>

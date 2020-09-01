@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+  skip_before_action :logged_in?
+
+  def login
+    render layout: false
+  end
+
   def create
     user = AdminUser.create_or_update_from_auth(request.env['omniauth.auth'])
     session[:user_id] = user.id
