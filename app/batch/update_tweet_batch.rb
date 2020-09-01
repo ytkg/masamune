@@ -7,6 +7,7 @@ class UpdateTweetBatch
   def execute
     tweets = Twitter::FetchTweetsService.call(@client)
     tweets.each do |tweet|
+      next if tweet.text.match(/^RT @/)
       @admin_user.tweets.update_or_create(tweet)
     end
   end
