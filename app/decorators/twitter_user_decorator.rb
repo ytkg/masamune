@@ -8,6 +8,6 @@ class TwitterUserDecorator < ApplicationDecorator
   end
 
   def ff_ratio
-    (friends_count.to_f / followers_count).round(2)
+    (followers_count.to_f / friends_count).round(2)
   end
 end
