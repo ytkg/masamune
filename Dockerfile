@@ -1,6 +1,9 @@
 FROM ruby:2.6.6
 ENV LANG C.UTF-8
 
+ENV NODE_PATH /usr/lib/nodejs:/usr/share/nodejs
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt update -qq && apt install -y nodejs yarnpkg postgresql-client
 RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 
