@@ -11,7 +11,6 @@ require("channels")
 require("jquery")
 require("chartkick")
 require("chart.js")
-require("admin-lte")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -24,5 +23,4 @@ require("admin-lte")
 import 'bootstrap'
 import 'bootstrap-table'
 import '@fortawesome/fontawesome-free/js/all'
-import 'admin-lte/plugins/fontawesome-free/css/all.min'
 import '../src/application.scss'
