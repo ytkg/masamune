@@ -13,7 +13,7 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= user.twitter_link %></td>
+        <td><%= user.name %> (<%= user.twitter_link %>)</td>
         <td class="text-right"><%= user.statuses_count %></td>
         <td class="text-right"><%= user.friends_count %></td>
         <td class="text-right"><%= user.followers_count %></td>
