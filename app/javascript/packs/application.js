@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require("jquery")
 require("chartkick")
 require("chart.js")
 require("admin-lte")
@@ -21,8 +20,6 @@ require("admin-lte")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import 'bootstrap'
 import 'bootstrap-table'
-import '@fortawesome/fontawesome-free/js/all'
 import 'admin-lte/plugins/fontawesome-free/css/all.min'
 import '../src/application.scss'
