@@ -7,6 +7,7 @@ class AdminUser < ApplicationRecord
   has_many :follow_users, through: :follows, source: :twitter_user
   has_many :tweets
   has_many :summaries
+  has_one :detail
 
   def self.create_or_update_from_auth(auth)
     find_or_initialize_by(id: auth[:uid]).tap do |user|
