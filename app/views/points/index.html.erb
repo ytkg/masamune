@@ -1,0 +1,25 @@
+<% content_for :page_title, 'ポイント' %>
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-body">
+      <table data-toggle="table" data-classes="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col" data-sortable="true">付与日時</th>
+            <th scope="col" data-sortable="true">付与理由</th>
+            <th scope="col" data-sortable="true">ポイント数</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @points.each do |point| %>
+            <tr>
+              <td class="text-nowrap"><%= point.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+              <td><%= point.name %></td>
+              <td class="text-right"><%= point.value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

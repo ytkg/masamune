@@ -23,6 +23,9 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a href="/" class="nav-link">ホーム</a>
           </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <%= link_to 'ポイント', points_path, class: 'nav-link', data: { turbolinks: false } %>
+          </li>
         </ul>
 
         <!-- Right navbar links -->
@@ -30,28 +33,20 @@
           <!-- Notifications Dropdown Menu -->
           <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
+              <i class="fab fa-product-hunt"></i>
+              <span class="badge badge-warning navbar-badge"><%= current_user.points.sum(:value) %>P</span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-header">15 Notifications</span>
+              <span class="dropdown-header"><%= current_user.points.sum(:value) %>ポイント</span>
+              <% current_user.points.order(created_at: :desc).take(3).each do |point| %>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item">
+                  <i class="far fa-laugh-beam"></i> <%= point.value %>ポイント
+                  <span class="float-right text-muted text-sm"><%= time_ago_in_words point.created_at %></span>
+                </div>
+              <% end %>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+              <%= link_to 'ポイント履歴', points_path, class: 'dropdown-item dropdown-footer', data: { turbolinks: false } %>
             </div>
           </li>
           <li class="nav-item">

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :reports, only: [:index]
   resources :tweets, only: [:index]
   resources :friendships, only: [:index]
+  resources :points, only: [:index]
 end
