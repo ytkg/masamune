@@ -27,6 +27,11 @@ class ApplicationController < ActionController::Base
     return unless current_user
 
     current_user.build_detail unless current_user.detail
+
+    if current_user.detail.last_login_date != Time.zone.today.to_s(:db)
+      current_user.points.create({name: 'ログインボーナス', value: 10})
+    end
+
     current_user.detail.update_last_login_date(Time.zone.today.to_s(:db))
   end
 end
