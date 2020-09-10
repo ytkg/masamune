@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'analytics/followers'
   resources :reports, only: [:index]
   resources :tweets, only: [:index]
-  resources :friendships, only: [:index]
+  resources :friendships, only: [:index] do
+    collection do
+      post :follow
+    end
+  end
   resources :points, only: [:index]
 end

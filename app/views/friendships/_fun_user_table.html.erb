@@ -1,0 +1,35 @@
+<table data-toggle="table" data-classes="table table-sm">
+  <thead class="table-borderless">
+    <tr>
+      <th scope="col">ユーザー名</th>
+      <th scope="col" data-sortable="true">ツイート数</th>
+      <th scope="col" data-sortable="true">フォロー数</th>
+      <th scope="col" data-sortable="true">フォロワー数</th>
+      <th scope="col" data-sortable="true">FF比率</th>
+      <th scope="col" data-sortable="true">いいね数</th>
+      <th scope="col" data-sortable="true">リスト数</th>
+      <th scope="col" data-sortable="true">フォローされた日</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr id="twitter_user_id_<%= user.id %>">
+        <td><%= user.name %> (<%= user.twitter_link %>)</td>
+        <td class="text-right"><%= user.statuses_count %></td>
+        <td class="text-right"><%= user.friends_count %></td>
+        <td class="text-right"><%= user.followers_count %></td>
+        <td class="text-right"><%= user.ff_ratio %></td>
+        <td class="text-right"><%= user.favourites_count %></td>
+        <td class="text-right"><%= user.listed_count %></td>
+        <td class="text-right"><%= user.created_at.to_date %></td>
+        <td class="text-right">
+          <%= form_with url: follow_friendships_path do |form| %>
+            <%= form.hidden_field :twitter_id, value: user.id %>
+            <%= form.submit 'フォロー', class: 'btn btn-info' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

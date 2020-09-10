@@ -6,4 +6,10 @@ class FriendshipsController < ApplicationController
     @friend_except_follower_users = @friend_users - @follower_users
     @follower_except_friend_users = @follower_users - @friend_users
   end
+
+  def follow
+    twitter_user_id = params[:twitter_id].to_i
+    current_user.client.follow(twitter_user_id)
+    @twitter_user_id = current_user.friends.find_or_create_by(twitter_user_id: twitter_user_id).twitter_user_id
+  end
 end
