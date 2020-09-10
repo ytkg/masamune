@@ -31,19 +31,19 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="friends" role="tabpanel" aria-labelledby="friends-tab">
-          <%= render partial: 'user_table', locals: { users: @friend_users } %>
+          <%= render partial: 'friend_user_table', locals: { users: @friend_users } %>
         </div>
         <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
-          <%= render partial: 'user_table', locals: { users: @follower_users } %>
+          <%= render partial: 'follower_user_table', locals: { users: @follower_users } %>
         </div>
         <div class="tab-pane fade" id="friend_and_follower_users" role="tabpanel" aria-labelledby="friend_and_follower_users-tab">
-          <%= render partial: 'user_table', locals: { users: @friend_and_follower_users } %>
+          <%= render partial: 'friend_user_table', locals: { users: @friend_and_follower_users } %>
         </div>
         <div class="tab-pane fade" id="friend_except_follower_users" role="tabpanel" aria-labelledby="friend_except_follower_users-tab">
-          <%= render partial: 'user_table', locals: { users: @friend_except_follower_users } %>
+          <%= render partial: 'friend_user_table', locals: { users: @friend_except_follower_users } %>
         </div>
         <div class="tab-pane fade" id="follower_except_friend_users" role="tabpanel" aria-labelledby="follower_except_friend_users-tab">
-          <%= render partial: 'user_table', locals: { users: @follower_except_friend_users } %>
+          <%= render partial: 'follower_user_table', locals: { users: @follower_except_friend_users } %>
         </div>
       </div>
     </div>
