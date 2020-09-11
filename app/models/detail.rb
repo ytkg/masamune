@@ -10,6 +10,14 @@ class Detail < ApplicationRecord
     update_value(:last_login_date, last_login_date)
   end
 
+  def daily_mission
+    value_hash[:daily_mission]
+  end
+
+  def update_daily_mission(daily_mission)
+    update_value(:daily_mission, daily_mission)
+  end
+
   private
 
   def value_hash

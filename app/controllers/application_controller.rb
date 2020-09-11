@@ -32,6 +32,9 @@ class ApplicationController < ActionController::Base
       current_user.points.create({name: 'ログインボーナス', value: 10})
     end
 
+    # パラメータが確定するまではここで必ず初期化するようにする
+    current_user.detail.update_daily_mission({ mission_1: false, mission_2: false,mission_3: false,mission_4: false })
+
     current_user.detail.update_last_login_date(Time.zone.today.to_s(:db))
   end
 end

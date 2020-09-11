@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     end
   end
   resources :points, only: [:index]
+  resources :daily_mission, only: [:index]
 end

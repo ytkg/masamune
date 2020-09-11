@@ -1,0 +1,14 @@
+<% content_for :page_title, 'デイリーミッション（開発中）' %>
+<% @daily_mission.values.each.with_index(1) do |_, i| %>
+  <div class="col-lg-3 col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title"><%= "ミッション#{i}" %></h6>
+        <p class="card-text text-right"></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="col-lg-12 col-md">
+  <%= button_tag 'ボーナスポイントを受け取る', class: 'btn btn-block btn-primary', disabled: true %>
+</div>
