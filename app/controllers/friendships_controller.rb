@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 
   def follow
     twitter_user_id = params[:twitter_id].to_i
-    current_user.client.follow(twitter_user_id)
+    Twitter::FollowUserService.call(current_user.client, twitter_user_id)
     @twitter_user_id = current_user.friends.find_or_create_by(twitter_user_id: twitter_user_id).twitter_user_id
   end
 end
