@@ -18,6 +18,14 @@ class Detail < ApplicationRecord
     update_value(:daily_mission, daily_mission)
   end
 
+  def settings
+    value_hash[:settings]
+  end
+
+  def update_settings(settings)
+    update_value(:settings, settings)
+  end
+
   private
 
   def value_hash

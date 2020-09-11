@@ -1,0 +1,28 @@
+<% content_for :page_title, '設定（開発中）' %>
+<div class="col-lg-12">
+  <div class="card">
+    <h5 class="card-header">自動フォロー設定</h5>
+    <div class="card-body">
+      <%= form_with url: settings_path do |form| %>
+        <div class="form-group custom-control custom-switch">
+          <%= form.check_box :enabled , { class: 'custom-control-input' }, 'true', 'false' %>
+          <%= form.label :enabled, '自動フォロー', class: 'custom-control-label' %>
+        </div>
+        
+        <div class="form-group">
+          <%= form.label :search_keyword, '検索キーワード' %>
+          <%= form.text_field :search_keyword, value: @settings[:auto_follow][:search_keyword], class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :friends_count, 'フォロー数' %>
+          <%= form.number_field :friends_count, value: @settings[:auto_follow][:friends_count], class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :followers_count, 'フォロワー数' %>
+          <%= form.number_field :followers_count, value: @settings[:auto_follow][:followers_count], class: 'form-control' %>
+        </div>
+        <p class="text-right mb-0"><%= form.submit '保存', class: 'btn btn-info' %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
