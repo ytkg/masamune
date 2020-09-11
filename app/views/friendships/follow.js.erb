@@ -1,1 +1,3 @@
 document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
+elm = document.querySelector('#follower_except_friend_users-tab span');
+elm.innerHTML = parseInt(elm.innerHTML) - 1;
