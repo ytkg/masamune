@@ -1,10 +1,10 @@
 class FriendshipsController < ApplicationController
   def index
-    @friend_users = current_user.friend_users.order(created_at: :desc).decorate
-    @follower_users = current_user.follower_users.order(created_at: :desc).decorate
-    @friend_and_follower_users = @friend_users & @follower_users
-    @friend_except_follower_users = @friend_users - @follower_users
-    @follower_except_friend_users = @follower_users - @friend_users
+    @friend_users = current_user.friends.includes(:twitter_user).order(created_at: :desc)
+    @follower_users = current_user.followers.includes(:twitter_user).order(created_at: :desc)
+    @friend_and_follower_users = @friend_users.where(twitter_user_id: @follower_users.map(&:twitter_user_id))
+    @friend_except_follower_users = @friend_users.where.not(twitter_user_id: @follower_users.map(&:twitter_user_id))
+    @follower_except_friend_users = @follower_users.where.not(twitter_user_id: @friend_users.map(&:twitter_user_id))
   end
 
   def follow

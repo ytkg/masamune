@@ -14,13 +14,13 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= user.name %> (<%= user.twitter_link %>)</td>
-        <td class="text-right"><%= user.statuses_count %></td>
-        <td class="text-right"><%= user.friends_count %></td>
-        <td class="text-right"><%= user.followers_count %></td>
-        <td class="text-right"><%= user.ff_ratio %></td>
-        <td class="text-right"><%= user.favourites_count %></td>
-        <td class="text-right"><%= user.listed_count %></td>
+        <td><%= user.twitter_user.name %> (<%= user.twitter_user.decorate.twitter_link %>)</td>
+        <td class="text-right"><%= user.twitter_user.statuses_count %></td>
+        <td class="text-right"><%= user.twitter_user.friends_count %></td>
+        <td class="text-right"><%= user.twitter_user.followers_count %></td>
+        <td class="text-right"><%= user.twitter_user.decorate.ff_ratio %></td>
+        <td class="text-right"><%= user.twitter_user.favourites_count %></td>
+        <td class="text-right"><%= user.twitter_user.listed_count %></td>
         <td class="text-right"><%= user.created_at.to_date %></td>
       </tr>
     <% end %>
