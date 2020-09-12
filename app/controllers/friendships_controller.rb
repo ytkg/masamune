@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
   def index
     @friend_users = current_user.friends.includes(:twitter_user).order(created_at: :desc)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Detail < ApplicationRecord
   attribute :value, :text, default: '{}'
   belongs_to :admin_user

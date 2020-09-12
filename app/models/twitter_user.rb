@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TwitterUser < ApplicationRecord
   def self.update_or_create(user)
     find_or_initialize_by(id: user.id).tap do |twitter_user|

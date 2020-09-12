@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SettingsController < ApplicationController
   def index
     @settings = current_user.detail.settings || {}
@@ -13,7 +15,7 @@ class SettingsController < ApplicationController
         auto_follow: {
           search_keyword: params[:search_keyword].presence,
           friends_count: params[:friends_count].to_i,
-          followers_count: params[:followers_count].to_i,
+          followers_count: params[:followers_count].to_i
         }
       }
     )

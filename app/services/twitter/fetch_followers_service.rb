@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Twitter
   class FetchFollowersService
     def self.call(client)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateSummaryBatch
   def initialize(admin_user)
     @admin_user = admin_user

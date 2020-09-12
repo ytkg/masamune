@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateFriendshipBatch
   def initialize(admin_user)
     @admin_user = admin_user
@@ -9,7 +11,7 @@ class UpdateFriendshipBatch
     update_followers
   end
 
-  private 
+  private
 
   def update_friends
     friends = Twitter::FetchFriendsService.call(@client)

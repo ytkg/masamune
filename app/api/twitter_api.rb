@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TwitterApi
   def self.new
     Twitter::REST::Client.new do |config|
