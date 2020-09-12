@@ -70,7 +70,7 @@
           <!-- Sidebar Menu -->
 
           <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
               <li class="nav-item">
@@ -97,11 +97,22 @@
                   <p>レポート</p>
                 <% end %>
               </li>
-              <li class="nav-item">
-                <%= active_link_to '/analytics/followers', class: 'nav-link', wrap_class: 'nav-link' do %>
-                  <i class="far fa-chart-bar nav-icon"></i>
-                  <p>分析</p>
+              <li class="nav-item has-treeview menu-open">
+                <%= active_link_to '/analytics', class: 'nav-link', wrap_class: 'has-treeview' do %>
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <p>
+                    分析
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
                 <% end %>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <%= active_link_to '/analytics/followers', class: 'nav-link', wrap_class: 'nav-link' do %>
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>フォロワー分析</p>
+                    <% end %>
+                  </li>
+                </ul>
               </li>
               <li class="nav-header"></li>
               <li class="nav-item">
