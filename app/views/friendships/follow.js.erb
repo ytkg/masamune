@@ -1,3 +1,9 @@
-document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
-elm = document.querySelector('#follower_except_friend_users-tab span');
-elm.innerHTML = parseInt(elm.innerHTML) - 1;
+<% if @success %>
+  document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
+  elm = document.querySelector('#follower_except_friend_users-tab span');
+  elm.innerHTML = parseInt(elm.innerHTML) - 1;
+  elm = document.querySelector('#user_point');
+  elm.innerHTML = parseInt(elm.innerHTML) + <%= @point[:value] %>;
+<% else %>
+  alert('フォローに失敗しました。ポイントが不足している可能性があります。');
+<% end %>

@@ -10,8 +10,15 @@ class FriendshipsController < ApplicationController
   end
 
   def follow
-    @twitter_user_id = params[:twitter_id].to_i
-    Twitter::FollowUserService.call(current_user.client, @twitter_user_id)
-    current_user.friends.find_or_create_by(twitter_user_id: @twitter_user_id)
+    @point = Point::USER_FOLLOW
+    point_service = PointService.new(current_user, Point::USER_FOLLOW)
+    if point_service.pay
+      @twitter_user_id = params[:twitter_id].to_i
+      Twitter::FollowUserService.call(current_user.client, @twitter_user_id)
+      current_user.friends.find_or_create_by(twitter_user_id: @twitter_user_id)
+      @success = true
+    else
+      @success = false
+    end
   end
 end
