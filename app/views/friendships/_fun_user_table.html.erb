@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <% users.each do |user| %>
-      <tr id="twitter_user_id_<%= user.id %>">
+      <tr id="twitter_user_id_<%= user.twitter_user.id %>">
         <td><%= user.twitter_user.name %> (<%= user.twitter_user.decorate.twitter_link %>)</td>
         <td class="text-right"><%= user.twitter_user.statuses_count %></td>
         <td class="text-right"><%= user.twitter_user.friends_count %></td>
@@ -25,7 +25,7 @@
         <td class="text-right"><%= user.created_at.to_date %></td>
         <td class="text-right">
           <%= form_with url: follow_friendships_path do |form| %>
-            <%= form.hidden_field :twitter_id, value: user.id %>
+            <%= form.hidden_field :twitter_id, value: user.twitter_user.id %>
             <%= form.submit 'フォロー', class: 'btn btn-info' %>
           <% end %>
         </td>
