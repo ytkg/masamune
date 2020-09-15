@@ -1,7 +1,8 @@
 <% if @success %>
   document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
-  elm = document.querySelector('#follower_except_friend_users-tab span');
-  elm.innerHTML = parseInt(elm.innerHTML) - 1;
+  document.querySelector('#friends_count').innerHTML = <%= friends_count %>;
+  document.querySelector('#friends_and_followers_count').innerHTML = <%= friends_and_followers_count %>;
+  document.querySelector('#follower_except_friend_users_count').innerHTML = <%= followers_except_friends_count %>;
   elm = document.querySelector('#user_point');
   elm.innerHTML = parseInt(elm.innerHTML) + <%= @point[:value] %>;
 <% else %>

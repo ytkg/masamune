@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :logged_in?
   before_action :update_last_login_at
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?,
+                :friends_count, :followers_count, :friends_and_followers_count, :friends_except_followers_count, :followers_except_friends_count
 
   private
 
@@ -20,6 +21,26 @@ class ApplicationController < ActionController::Base
     return if @current_user
 
     redirect_to login_path
+  end
+
+  def friends_count
+    current_user.friends.count
+  end
+
+  def followers_count
+    current_user.followers.count
+  end
+
+  def friends_and_followers_count
+    current_user.friends.where(twitter_user_id: current_user.followers.select(:twitter_user_id)).count
+  end
+
+  def friends_except_followers_count
+    current_user.friends.where.not(twitter_user_id: current_user.followers.select(:twitter_user_id)).count
+  end
+
+  def followers_except_friends_count
+    current_user.followers.where.not(twitter_user_id: current_user.friends.select(:twitter_user_id)).count
   end
 
   def update_last_login_at

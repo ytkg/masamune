@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   resources :tweets, only: [:index]
   resources :friendships, only: [:index] do
     collection do
+      get :friends
+      get :followers
+      get :friends_and_followers
+      get :friends_except_followers
+      get :followers_except_friends
       post :follow
     end
   end
