@@ -5,24 +5,34 @@
     <div class="card-body">
       <%= form_with url: settings_path do |form| %>
         <div class="form-group custom-control custom-switch">
-          <%= form.check_box :enabled , { class: 'custom-control-input' }, 'true', 'false' %>
-          <%= form.label :enabled, '自動フォロー', class: 'custom-control-label' %>
+          <%= form.check_box :auto_follow_enabled, { checked: @settings[:auto_follow][:enabled].present?, class: 'custom-control-input' }, true, nil %>
+          <%= form.label :auto_follow_enabled, '自動フォロー', class: 'custom-control-label' %>
         </div>
-        
-        <div class="form-group">
-          <%= form.label :search_keyword, '検索キーワード' %>
-          <%= form.text_field :search_keyword, value: @settings[:auto_follow][:search_keyword], class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :friends_count, 'フォロー数' %>
-          <%= form.number_field :friends_count, value: @settings[:auto_follow][:friends_count], class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= form.label :followers_count, 'フォロワー数' %>
-          <%= form.number_field :followers_count, value: @settings[:auto_follow][:followers_count], class: 'form-control' %>
-        </div>
+        <p>
+          検索キーワード
+          <%= form.text_field :search_keyword, value: @settings[:auto_follow][:search_keyword], class: '' %>
+          を含むツイートをした
+        </p>
+        <p>
+          フォロー数が
+          <%= form.number_field :friends_count_ge, value: @settings[:auto_follow][:friends_count_ge], class: '' %>
+          人以上、
+          <%= form.number_field :friends_count_le, value: @settings[:auto_follow][:friends_count_le], class: '' %>
+          人以下で
+        </p>
+        <p>
+          フォロワー数が
+          <%= form.number_field :followers_count_ge, value: @settings[:auto_follow][:followers_count_ge], class: '' %>
+          人以上、
+          <%= form.number_field :followers_count_le, value: @settings[:auto_follow][:followers_count_le], class: '' %>
+          人以下のユーザーをフォローする
+        </p>
         <p class="text-right mb-0"><%= form.submit '保存', class: 'btn btn-info' %></p>
       <% end %>
+      <hr>
+      <div>
+        自動フォローは5ポイント消費します。（1日1回、時間不定期で動作）
+      </div>
     </div>
   </div>
 </div>
