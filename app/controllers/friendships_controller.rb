@@ -19,17 +19,26 @@ class FriendshipsController < ApplicationController
 
   def friends_and_followers
     follower_ids = current_user.followers.select(:twitter_user_id)
-    @friends_and_followers = current_user.friends.includes(:twitter_user).where(twitter_user_id: follower_ids).order(created_at: :desc)
+    @friends_and_followers = current_user.friends
+                                         .includes(:twitter_user)
+                                         .where(twitter_user_id: follower_ids)
+                                         .order(created_at: :desc)
   end
 
   def friends_except_followers
     follower_ids = current_user.followers.select(:twitter_user_id)
-    @friends_except_followers = current_user.friends.includes(:twitter_user).where.not(twitter_user_id: follower_ids).order(created_at: :desc)
+    @friends_except_followers = current_user.friends
+                                            .includes(:twitter_user)
+                                            .where.not(twitter_user_id: follower_ids)
+                                            .order(created_at: :desc)
   end
 
   def followers_except_friends
     friends_ids = current_user.friends.select(:twitter_user_id)
-    @followers_except_friends = current_user.followers.includes(:twitter_user).where.not(twitter_user_id: friends_ids).order(created_at: :desc)
+    @followers_except_friends = current_user.followers
+                                            .includes(:twitter_user)
+                                            .where.not(twitter_user_id: friends_ids)
+                                            .order(created_at: :desc)
   end
 
   def follow
