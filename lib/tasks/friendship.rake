@@ -8,4 +8,12 @@ namespace :friendship do
       Slack::NotificationService.call(e)
     end
   end
+
+  task follow: :environment do
+    AdminUser.all.each do |admin_user|
+      AutoFollowBatch.new(admin_user).execute
+    rescue StandardError => e
+      Slack::NotificationService.call(e)
+    end
+  end
 end
