@@ -13,5 +13,9 @@ Style/ClassAndModuleChildren:
   Enabled: false
 Style/NumericLiterals:
   Enabled: false
+Style/AsciiComments:
+  Enabled: false
 Metrics/LineLength:
-  Max: 100
+  Max: 120
+Metrics/MethodLength:
+  Max: 12
