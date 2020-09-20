@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UpdateFriendshipBatch do
   describe '#update_friends' do
     let(:admin_user) { create(:admin_user, :with_friend_user) }
-    let(:friends) { JSON.parse(File.read('spec/json/friends.json'), symbolize_names: true).map{ |u| Twitter::User.new(u) } }
+    let(:friends) do
+      JSON.parse(File.read('spec/json/friends.json'), symbolize_names: true).map { |u| Twitter::User.new(u) }
+    end
 
     before do
       allow(Twitter::FetchFriendsService).to receive(:call).and_return(friends)
@@ -17,7 +21,9 @@ RSpec.describe UpdateFriendshipBatch do
 
   describe '#update_followers' do
     let(:admin_user) { create(:admin_user, :with_follower_user) }
-    let(:followers) { JSON.parse(File.read('spec/json/followers.json'), symbolize_names: true).map{ |u| Twitter::User.new(u) } }
+    let(:followers) do
+      JSON.parse(File.read('spec/json/followers.json'), symbolize_names: true).map { |u| Twitter::User.new(u) }
+    end
 
     before do
       allow(Twitter::FetchFollowersService).to receive(:call).and_return(followers)

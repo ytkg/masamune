@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :admin_user do
     sequence(:id) { |n| n }
-    sequence(:screen_name) { |n| "SCREEN_NAME#{n}"}
-    sequence(:name) { |n| "NAME#{n}"}
-    sequence(:image_url) { |n| "http://pbs.twimg.com/profile_images/#{n}/OwV2JC5B_normal.jpg"}
-    sequence(:token) { |n| "TOKEN#{n}"}
-    sequence(:secret) { |n| "SECRET#{n}"}
+    sequence(:screen_name) { |n| "SCREEN_NAME#{n}" }
+    sequence(:name) { |n| "NAME#{n}" }
+    sequence(:image_url) { |n| "http://pbs.twimg.com/profile_images/#{n}/OwV2JC5B_normal.jpg" }
+    sequence(:token) { |n| "TOKEN#{n}" }
+    sequence(:secret) { |n| "SECRET#{n}" }
   end
 
   trait :with_detail do

@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UpdateTweetBatch do
   describe '#execute' do
     let(:admin_user) { create(:admin_user, :with_friend_user) }
-    let(:tweets) { JSON.parse(File.read('spec/json/tweets.json'), symbolize_names: true).map{ |t| Twitter::Tweet.new(t) } }
-    let(:tweets_without_rt) { tweets.select{ |t| !t.text.match(/^RT @/) } }
+    let(:tweets) do
+      JSON.parse(File.read('spec/json/tweets.json'), symbolize_names: true).map { |t| Twitter::Tweet.new(t) }
+    end
+    let(:tweets_without_rt) { tweets.reject { |t| t.text.match(/^RT @/) } }
 
     before do
       allow(Twitter::FetchTweetsService).to receive(:call).and_return(tweets)
