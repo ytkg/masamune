@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_154840) do
+ActiveRecord::Schema.define(version: 2020_09_20_060902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,34 +103,6 @@ ActiveRecord::Schema.define(version: 2020_09_08_154840) do
     t.integer "favourites_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_summaries", force: :cascade do |t|
-    t.date "result_date"
-    t.integer "friends_count"
-    t.integer "followers_count"
-    t.integer "statuses_count"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "retweet_count"
-    t.integer "favorite_count"
-    t.string "name"
-    t.string "screen_name"
-    t.text "profile_image_url_https"
-  end
-
-  create_table "users", id: :bigint, default: nil, force: :cascade do |t|
-    t.string "screen_name"
-    t.integer "statuses_count", default: 0
-    t.integer "friends_count", default: 0
-    t.integer "followers_count", default: 0
-    t.integer "listed_count", default: 0
-    t.integer "favourites_count", default: 0
-    t.boolean "is_follower", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "is_friend", default: false
-    t.boolean "followed", default: false
   end
 
   add_foreign_key "details", "admin_users"
