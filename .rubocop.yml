@@ -19,3 +19,6 @@ Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
   Max: 12
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
