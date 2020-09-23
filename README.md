@@ -87,8 +87,6 @@ heroku create [applicatin name]
 heroku config:add TZ=Asia/Tokyo
 heroku config:set TWITTER_API_CONSUMER_KEY="TWITTER_API_CONSUMER_KEY"
 heroku config:set TWITTER_API_CONSUMER_SECRET="TWITTER_API_CONSUMER_SECRET"
-heroku config:set TWITTER_API_ACCESS_TOKEN="TWITTER_API_ACCESS_TOKEN"
-heroku config:set TWITTER_API_ACCESS_TOKEN_SECRET="TWITTER_API_ACCESS_TOKEN_SECRET"
 heroku config:set SLACK_WEBHOOK_URL="SLACK_WEBHOOK_URL"
 
 git push heroku master
