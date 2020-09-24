@@ -24,3 +24,5 @@ Metrics/BlockLength:
     - spec/**/*
 Metrics/AbcSize:
   Max: 25
+Metrics/CyclomaticComplexity:
+  Max: 8
