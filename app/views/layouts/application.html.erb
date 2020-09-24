@@ -79,10 +79,17 @@
                   <p>ダッシュボード</p>
                 <% end %>
               </li>
+              <li class="nav-header">ツイート管理</li>
               <li class="nav-item">
-                <%= active_link_to '/tweets', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
+                <%= active_link_to '/tweets/new', class: 'nav-link', wrap_class: 'nav-link' do %>
                   <i class="far fa-comment-alt nav-icon"></i>
                   <p>ツイート</p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= active_link_to '/tweets', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false }, active: :exclusive do %>
+                  <i class="far fa-comment-alt nav-icon"></i>
+                  <p>ツイート一覧</p>
                 <% end %>
               </li>
               <li class="nav-header">フォロー管理</li>
