@@ -14,4 +14,15 @@ class TwitterUser < ApplicationRecord
       )
     end
   end
+
+  def range(column)
+    case send(column)
+    when 0..99 then '0-99'
+    when 100..499 then '100-499'
+    when 500..999 then '500-999'
+    when 1000..4999 then '1000-4999'
+    when 5000..49999 then '5000-49999'
+    else '50000-'
+    end
+  end
 end
