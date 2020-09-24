@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :logged_in?
   before_action :update_last_login_at
   protect_from_forgery with: :exception
-  helper_method :current_user, :logged_in?,
-                :friends_count, :followers_count, :friends_and_followers_count, :friends_except_followers_count, :followers_except_friends_count
+  helper_method :current_user, :logged_in?, :friends_count, :followers_count,
+                :friends_and_followers_count, :friends_except_followers_count, :followers_except_friends_count
 
   private
 
