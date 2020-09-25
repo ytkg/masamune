@@ -11,9 +11,7 @@
     <div class="card-body">
       <%= form_with url: tweets_path, local: true do |form| %>
         <p>
-          <textarea class="form-control" name="tweet_text" placeholder="いまどうしてる？">
-            <%= session[:tweet] %>
-          </textarea>
+          <textarea class="form-control" name="tweet_text" placeholder="いまどうしてる？"><%= session[:tweet] %></textarea>
         </p>
         <p class="text-right mb-0"><%= form.submit 'ツイート', class: 'btn btn-info' %></p>
       <% end %>
