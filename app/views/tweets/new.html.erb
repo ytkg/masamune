@@ -1,13 +1,26 @@
-<% content_for :page_title, 'ツイート（開発中）' %>
-<div class="col-lg-12">
+<% content_for :page_title, 'ツイート' %>
+<div class="col-lg-6">
+  <% flash.each do |type, message| %>
+    <div class="alert alert-<%= type %> alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5><i class="icon fas fa-check"></i><%= type.capitalize %>!</h5>
+      <%= message %>
+    </div>
+  <% end %>
   <div class="card">
     <div class="card-body">
-      <%= form_with url: tweets_path do |form| %>
+      <%= form_with url: tweets_path, local: true do |form| %>
         <p>
-          <%= form.text_area :tweet_text, class: 'form-control', disabled: true %>
+          <textarea class="form-control" name="tweet_text" placeholder="いまどうしてる？">
+            <%= session[:tweet] %>
+          </textarea>
         </p>
-        <p class="text-right mb-0"><%= form.submit 'ツイート', class: 'btn btn-info', disabled: true %></p>
+        <p class="text-right mb-0"><%= form.submit 'ツイート', class: 'btn btn-info' %></p>
       <% end %>
     </div>
   </div>
+</div>
+<div class="col-lg-6">
+  <a class="twitter-timeline" href="https://twitter.com/<%= current_user.screen_name %>?ref_src=twsrc%5Etfw"></a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
