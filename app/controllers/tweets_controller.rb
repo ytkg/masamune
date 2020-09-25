@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
     session[:tweet] = nil
     flash[:success] = 'ツイートしました。'
     redirect_to action: :new
-  rescue => ex
+  rescue StandardError
     flash[:danger] = 'ツイート失敗しました'
     session[:tweet] = params['tweet_text']
     redirect_to action: :new
