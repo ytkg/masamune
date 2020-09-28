@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
     current_user.build_detail unless current_user.detail
 
     if current_user.detail.last_login_date != Time.zone.today.to_s(:db)
-      current_user.points.create({ name: 'ログインボーナス', value: 10 })
+      PointService.new(current_user, Point::LOGIN_BONUS).pay
     end
 
     # パラメータが確定するまではここで必ず初期化するようにする
