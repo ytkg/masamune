@@ -15,6 +15,16 @@
         </p>
         <p class="text-right mb-0"><%= form.submit 'ツイート', class: 'btn btn-info' %></p>
       <% end %>
+      プレビュー
+      <div class="row" style="max-width:618px">
+        <div class="col-sm-1">
+          <%= image_tag current_user.image_url, class: 'img-circle m-2', width: 49 %>
+        </div>
+        <div class="col-sm-11">
+          <p class="mt-2 ml-3 mb-0"><b><%= current_user.name %></b> @<%= current_user.screen_name %></p>
+          <p class="mt-0 ml-3" id="tweet-preview"><%= session[:tweet] %></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -22,3 +32,9 @@
   <a class="twitter-timeline" href="https://twitter.com/<%= current_user.screen_name %>?ref_src=twsrc%5Etfw"></a>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
+<script>
+  document.forms[0].tweet_text.addEventListener("keyup", event => {
+    let el = document.getElementById('tweet-preview');
+    el.innerText = event.target.value;
+  });
+</script>
