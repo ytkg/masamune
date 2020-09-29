@@ -27,6 +27,19 @@
       </div>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">ツイートテンプレート</h3>
+    </div>
+    <div class="card-body">
+      <p>
+        <%= text_area_tag :tweet_text_template, cookies[:tweet_text_template], { placeholder: '#プロスピA', class: 'form-control' } %>
+      </p>
+      <p class="text-right mb-0">
+        <%= button_tag '反映', class: 'btn btn-info', onclick: 'reflect_template()' %>
+      </p>
+    </div>
+  </div>
 </div>
 <div class="col-lg-6">
   <div class="card">
@@ -51,4 +64,12 @@
     let el = document.getElementById('tweet-preview');
     el.innerText = event.target.value;
   });
+
+  document.getElementById('tweet_text_template').addEventListener("keyup", event => {
+    document.cookie = 'tweet_text_template=' + encodeURIComponent(event.target.value);
+  });
+
+  const reflect_template = function() {
+    document.forms[0].tweet_text.value = document.getElementById('tweet_text_template').value;
+  }
 </script>
