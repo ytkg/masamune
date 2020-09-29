@@ -5,7 +5,9 @@ class TweetsController < ApplicationController
     @tweets = current_user.tweets.order(tweeted_at: :desc)
   end
 
-  def new; end
+  def new
+    @tweets = current_user.tweets.order(tweeted_at: :desc).limit(5)
+  end
 
   def create
     tweet = Twitter::TweetService.call(current_user.client, params[:tweet_text])

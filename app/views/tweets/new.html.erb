@@ -29,8 +29,22 @@
   </div>
 </div>
 <div class="col-lg-6">
-  <a class="twitter-timeline" href="https://twitter.com/<%= current_user.screen_name %>?ref_src=twsrc%5Etfw"></a>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">直近5ツイート</h3>
+    </div>
+    <div class="card-body p-0">
+      <table class="table">
+        <tbody>
+          <% @tweets.each do |tweet| %>
+            <tr>
+              <td><%= tweet.text %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 <script>
   document.forms[0].tweet_text.addEventListener("keyup", event => {
