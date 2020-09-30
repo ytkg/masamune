@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     user = AdminUser.create_or_update_from_auth(request.env['omniauth.auth'])
     session[:user_id] = user.id
-    flash[:notice] = 'ログインしました。'
+    flash[:info] = 'ログインしました。'
     redirect_to root_path
   end
 
