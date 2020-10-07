@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#login'
   root 'home#index'
   get 'analytics/followers'
+  resources :admin_users, only: [:index]
   resources :reports, only: [:index]
   resources :tweets, only: [:index, :new, :create]
   resources :friendships, only: [:index] do
