@@ -6,6 +6,8 @@ class TwitterUser < ApplicationRecord
       twitter_user.update!(
         screen_name: user.screen_name,
         name: user.name,
+        description: user.description,
+        profile_image_url_https: user.profile_image_url_https,
         statuses_count: user.statuses_count,
         friends_count: user.friends_count,
         followers_count: user.followers_count,
