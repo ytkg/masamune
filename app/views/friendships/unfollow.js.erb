@@ -1,0 +1,10 @@
+<% if @success %>
+  document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
+  document.querySelector('#friends_count').innerHTML = <%= friends_count %>;
+  document.querySelector('#friends_and_followers_count').innerHTML = <%= friends_and_followers_count %>;
+  document.querySelector('#friends_except_followers_count').innerHTML = <%= friends_except_followers_count %>;
+  elm = document.querySelector('#user_point');
+  elm.innerHTML = parseInt(elm.innerHTML) + <%= @point[:value] %>;
+<% else %>
+  alert('フォロー解除に失敗しました。ポイントが不足している可能性があります。');
+<% end %>

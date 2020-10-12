@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :friends_except_followers
       get :followers_except_friends
       post :follow
+      post :unfollow
     end
   end
   resources :points, only: [:index]
