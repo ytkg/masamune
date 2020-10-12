@@ -24,6 +24,7 @@ class AutoFollowBatch
     followed_twitter_user_ids = @admin_user.follows.pluck(:twitter_user_id)
     users = Twitter::FetchUsersByKeywordSearchService.call(@client, auto_follow_setting[:search_keyword])
     users.each_with_object([]) do |user, arr|
+      next if user.id == @admin_user.id
       next if followed_twitter_user_ids.include?(user.id)
       next if user.friends_count < auto_follow_setting[:friends_count_ge]
       next if user.friends_count > auto_follow_setting[:friends_count_le]
