@@ -12,6 +12,7 @@ class TweetsController < ApplicationController
   def create
     tweet = Twitter::TweetService.call(current_user.client, params[:tweet_text])
     current_user.tweets.update_or_create(tweet)
+    PointService.new(current_user, Point::TWEET).pay
     session[:tweet] = nil
     flash[:success] = 'ツイートしました。'
     redirect_to action: :new
