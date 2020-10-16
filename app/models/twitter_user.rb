@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TwitterUser < ApplicationRecord
-  def self.update_or_create(user)
+  def self.update_or_create(user) # rubocop:disable Metrics/MethodLength
     find_or_initialize_by(id: user.id).tap do |twitter_user|
       twitter_user.update!(
         screen_name: user.screen_name,
