@@ -8,6 +8,10 @@
         <div><%= admin_user.name %>(@<%= admin_user.screen_name %>)</div>
       </div>
       <div class="mb-3">
+        <h3>Point</h3>
+        <div><%= admin_user.points.sum(:value) %></div>
+      </div>
+      <div class="mb-3">
         <h3>Summary</h3>
         <% summary = admin_user.summaries.order(:id).decorate.last %>
         <div class="row">
