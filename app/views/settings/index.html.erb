@@ -10,22 +10,29 @@
         </div>
         <p>
           検索キーワード
-          <%= form.text_field :search_keyword, value: @settings[:auto_follow][:search_keyword], class: '' %>
+          <%= form.text_field :search_keyword, value: @settings[:auto_follow][:search_keyword] || '#プロスピA', class: '' %>
           を含むツイートをした
         </p>
         <p>
           フォロー数が
-          <%= form.number_field :friends_count_ge, value: @settings[:auto_follow][:friends_count_ge], class: '' %>
+          <%= form.number_field :friends_count_ge, value: @settings[:auto_follow][:friends_count_ge] || '50', class: '' %>
           人以上、
-          <%= form.number_field :friends_count_le, value: @settings[:auto_follow][:friends_count_le], class: '' %>
+          <%= form.number_field :friends_count_le, value: @settings[:auto_follow][:friends_count_le] || 10000, class: '' %>
           人以下で
         </p>
         <p>
           フォロワー数が
-          <%= form.number_field :followers_count_ge, value: @settings[:auto_follow][:followers_count_ge], class: '' %>
+          <%= form.number_field :followers_count_ge, value: @settings[:auto_follow][:followers_count_ge] || 50, class: '' %>
           人以上、
-          <%= form.number_field :followers_count_le, value: @settings[:auto_follow][:followers_count_le], class: '' %>
-          人以下のユーザーをフォローする
+          <%= form.number_field :followers_count_le, value: @settings[:auto_follow][:followers_count_le] || 10000, class: '' %>
+          人以下で
+        </p>
+        <p>
+          FF比率（フォロワー数÷フォロー数）が
+          <%= form.number_field :ff_ratio_ge, value: @settings[:auto_follow][:ff_ratio_ge] || 0.6, step: 0.1, class: '' %>
+          以上、
+          <%= form.number_field :ff_ratio_le, value: @settings[:auto_follow][:ff_ratio_le] || 1.2, step: 0.1, class: '' %>
+          以下のユーザーをフォローする
         </p>
         <p class="text-right mb-0"><%= form.submit '保存', class: 'btn btn-info' %></p>
       <% end %>
