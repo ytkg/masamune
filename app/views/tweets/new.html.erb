@@ -1,0 +1,70 @@
+<% content_for :page_title, 'ツイート' %>
+<div class="col-lg-6">
+  <div class="card">
+    <div class="card-body">
+      <%= form_with url: tweets_path, local: true do |form| %>
+        <p>
+          <%= form.text_area :tweet_text, { value: session[:tweet], placeholder: 'いまどうしてる？', class: 'form-control' } %>
+        </p>
+        <p class="text-right mb-0"><%= form.submit 'ツイート', class: 'btn btn-info' %></p>
+      <% end %>
+      プレビュー
+      <div class="row" style="max-width:618px">
+        <div class="col-sm-1">
+          <%= image_tag current_user.image_url, class: 'img-circle m-2', width: 49 %>
+        </div>
+        <div class="col-sm-11">
+          <p class="mt-2 ml-3 mb-0"><b><%= current_user.name %></b> @<%= current_user.screen_name %></p>
+          <p class="mt-0 ml-3" id="tweet-preview"><%= session[:tweet] %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">ツイートテンプレート</h3>
+    </div>
+    <div class="card-body">
+      <p>
+        <%= text_area_tag :tweet_text_template, cookies[:tweet_text_template], { placeholder: '#プロスピA', class: 'form-control' } %>
+      </p>
+      <p class="text-right mb-0">
+        <%= button_tag '反映', class: 'btn btn-info', onclick: 'reflect_template()' %>
+      </p>
+      <hr>
+      <div>Cookieにオートセーブされます。</div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">直近5ツイート</h3>
+    </div>
+    <div class="card-body p-0">
+      <table class="table">
+        <tbody>
+          <% @tweets.each do |tweet| %>
+            <tr>
+              <td><%= tweet.text %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  document.forms[0].tweet_text.addEventListener("keyup", event => {
+    let el = document.getElementById('tweet-preview');
+    el.innerText = event.target.value;
+  });
+
+  document.getElementById('tweet_text_template').addEventListener("keyup", event => {
+    document.cookie = 'tweet_text_template=' + encodeURIComponent(event.target.value);
+  });
+
+  const reflect_template = function() {
+    document.forms[0].tweet_text.value = document.getElementById('tweet_text_template').value;
+  }
+</script>

@@ -1,0 +1,45 @@
+<% content_for :page_title, 'ユーザー一覧' %>
+<% @admin_users.each do |admin_user| %>
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-body">
+      <div class="mb-3">
+        <h3>User</h3>
+        <div><%= admin_user.name %>(@<%= admin_user.screen_name %>)</div>
+      </div>
+      <div class="mb-3">
+        <h3>Point</h3>
+        <div><%= admin_user.points.sum(:value) %></div>
+      </div>
+      <div class="mb-3">
+        <h3>Summary</h3>
+        <% summary = admin_user.summaries.order(:id).decorate.last %>
+        <div class="row">
+          <div class="col-lg">ツイート数: <%= summary.statuses_count %></div>
+          <div class="col-lg">フォロー数: <%= summary.friends_count %></div>
+          <div class="col-lg">フォロワー数: <%= summary.followers_count %></div>
+          <div class="col-lg">FF比: <%= summary.ff_ratio %></div>
+          <div class="col-lg">被RT数: <%= summary.retweet_count %></div>
+          <div class="col-lg">被いいね数: <%= summary.favorite_count %></div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <h3>Detail</h3>
+        <% JSON.parse(admin_user.detail.value).each do |key, value| %>
+          <p><%= "#{key}: #{value}" %></p>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <h3>Friendship</h3>
+        <div class="row">
+          <div class="col-lg">フォロー数: <%= admin_user.friends.count %></div>
+          <div class="col-lg">フォロワー数: <%= admin_user.followers.count %></div>
+          <div class="col-lg">相互フォロー数: <%= admin_user.friends.where(twitter_user_id: admin_user.followers.select(:twitter_user_id)).count %></div>
+          <div class="col-lg">片思い数: <%= admin_user.friends.where.not(twitter_user_id: admin_user.followers.select(:twitter_user_id)).count %></div>
+          <div class="col-lg">片思われ数: <%= admin_user.followers.where.not(twitter_user_id: admin_user.friends.select(:twitter_user_id)).count %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

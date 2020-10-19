@@ -1,4 +1,4 @@
-<table data-toggle="table" data-classes="table table-sm">
+<table data-toggle="table" data-classes="table table-hover table-sm">
   <thead class="table-borderless">
     <tr>
       <th scope="col">ユーザー名</th>
@@ -9,11 +9,12 @@
       <th scope="col" data-sortable="true">いいね数</th>
       <th scope="col" data-sortable="true">リスト数</th>
       <th scope="col" data-sortable="true">フォローした日</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
-      <tr>
+      <tr id="twitter_user_id_<%= user.twitter_user.id %>">
         <td><%= user.twitter_user.name %> (<%= user.twitter_user.decorate.twitter_link %>)</td>
         <td class="text-right"><%= user.twitter_user.statuses_count %></td>
         <td class="text-right"><%= user.twitter_user.friends_count %></td>
@@ -22,6 +23,12 @@
         <td class="text-right"><%= user.twitter_user.favourites_count %></td>
         <td class="text-right"><%= user.twitter_user.listed_count %></td>
         <td class="text-right"><%= user.created_at.to_date %></td>
+        <td class="text-right">
+          <%= form_with url: unfollow_friendships_path do |form| %>
+            <%= form.hidden_field :twitter_id, value: user.twitter_user.id %>
+            <%= form.submit 'フォロー解除', class: 'btn btn-danger' %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

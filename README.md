@@ -3,10 +3,10 @@
 Twitterアカウント運用支援システム
 
 <a href="https://www.ruby-lang.org/en/">
-  <img src="https://img.shields.io/badge/Ruby-v2.6.6-green.svg" alt="ruby version">
+  <img src="https://img.shields.io/badge/Ruby-v2.7.2-green.svg" alt="ruby version">
 </a>
 <a href="http://rubyonrails.org/">
-  <img src="https://img.shields.io/badge/Rails-v6.0.3.3-brightgreen.svg" alt="rails version">
+  <img src="https://img.shields.io/badge/Rails-v6.0.3.4-brightgreen.svg" alt="rails version">
 </a>
 
 
@@ -87,8 +87,6 @@ heroku create [applicatin name]
 heroku config:add TZ=Asia/Tokyo
 heroku config:set TWITTER_API_CONSUMER_KEY="TWITTER_API_CONSUMER_KEY"
 heroku config:set TWITTER_API_CONSUMER_SECRET="TWITTER_API_CONSUMER_SECRET"
-heroku config:set TWITTER_API_ACCESS_TOKEN="TWITTER_API_ACCESS_TOKEN"
-heroku config:set TWITTER_API_ACCESS_TOKEN_SECRET="TWITTER_API_ACCESS_TOKEN_SECRET"
 heroku config:set SLACK_WEBHOOK_URL="SLACK_WEBHOOK_URL"
 
 git push heroku master

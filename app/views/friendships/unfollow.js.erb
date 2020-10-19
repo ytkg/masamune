@@ -2,9 +2,9 @@
   document.getElementById('twitter_user_id_<%= @twitter_user_id %>').remove();
   document.querySelector('#friends_count').innerHTML = <%= current_user.friends_count %>;
   document.querySelector('#friends_and_followers_count').innerHTML = <%= current_user.friends_and_followers_count %>;
-  document.querySelector('#follower_except_friend_users_count').innerHTML = <%= current_user.followers_except_friends_count %>;
+  document.querySelector('#friends_except_followers_count').innerHTML = <%= current_user.friends_except_followers_count %>;
   elm = document.querySelector('#user_point');
   elm.innerHTML = parseInt(elm.innerHTML) + <%= @point[:value] %>;
 <% else %>
-  alert('フォローに失敗しました。ポイントが不足している可能性があります。');
+  alert('フォロー解除に失敗しました。ポイントが不足している可能性があります。');
 <% end %>

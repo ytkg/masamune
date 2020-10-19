@@ -53,4 +53,17 @@ class FriendshipsController < ApplicationController
       @success = false
     end
   end
+
+  def unfollow
+    @point = Point::USER_UNFOLLOW
+    point_service = PointService.new(current_user, Point::USER_UNFOLLOW)
+    if point_service.pay
+      @twitter_user_id = params[:twitter_id].to_i
+      Twitter::UnfollowUserService.call(current_user.client, @twitter_user_id)
+      current_user.friends.find_by(twitter_user_id: @twitter_user_id).destroy
+      @success = true
+    else
+      @success = false
+    end
+  end
 end
