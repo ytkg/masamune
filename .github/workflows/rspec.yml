@@ -1,4 +1,4 @@
-name: RSpec
+name: RSpec with SimpleCov
 
 on: [push]
 
@@ -40,4 +40,10 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec rails db:create
         bundle exec rails db:migrate
-        bundle exec rspec
+        COVERAGE=true bundle exec rspec
+    - name: Upload coverage results
+      uses: actions/upload-artifact@master
+      if: always()
+      with:
+        name: coverage-report
+        path: coverage
