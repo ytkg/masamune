@@ -96,31 +96,31 @@
               <li class="nav-item">
                 <%= active_link_to '/friendships/friends', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
                   <i class="fas fa-user-friends nav-icon"></i>
-                  <p>フォロー(<span id="friends_count"><%= friends_count %></span>)</p>
+                  <p>フォロー(<span id="friends_count"><%= current_user.friends_count %></span>)</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= active_link_to '/friendships/followers', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
                   <i class="fas fa-user-friends nav-icon"></i>
-                  <p>フォロワー(<span id="followers_count"><%= followers_count %></span>)</p>
+                  <p>フォロワー(<span id="followers_count"><%= current_user.followers_count %></span>)</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= active_link_to '/friendships/friends_and_followers', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
                   <i class="fas fa-user-friends nav-icon"></i>
-                  <p>相互フォロー(<span id="friends_and_followers_count"><%= friends_and_followers_count %></span>)</p>
+                  <p>相互フォロー(<span id="friends_and_followers_count"><%= current_user.friends_and_followers_count %></span>)</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= active_link_to '/friendships/friends_except_followers', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
                   <i class="fas fa-user-friends nav-icon"></i>
-                  <p>片思い(<span id="friends_except_followers_count"><%= friends_except_followers_count %></span>)</p>
+                  <p>片思い(<span id="friends_except_followers_count"><%= current_user.friends_except_followers_count %></span>)</p>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%= active_link_to '/friendships/followers_except_friends', class: 'nav-link', wrap_class: 'nav-link', data: { turbolinks: false } do %>
                   <i class="fas fa-user-friends nav-icon"></i>
-                  <p>片思われ(<span id="follower_except_friend_users_count"><%= followers_except_friends_count %></span>)</p>
+                  <p>片思われ(<span id="follower_except_friend_users_count"><%= current_user.followers_except_friends_count %></span>)</p>
                 <% end %>
               </li>
               <li class="nav-header">分析</li>

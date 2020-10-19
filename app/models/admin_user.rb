@@ -24,6 +24,26 @@ class AdminUser < ApplicationRecord
     end
   end
 
+  def friends_count
+    friends.count
+  end
+
+  def followers_count
+    followers.count
+  end
+
+  def friends_and_followers_count
+    friends.where(twitter_user_id: followers.select(:twitter_user_id)).count
+  end
+
+  def friends_except_followers_count
+    friends.where.not(twitter_user_id: followers.select(:twitter_user_id)).count
+  end
+
+  def followers_except_friends_count
+    followers.where.not(twitter_user_id: friends.select(:twitter_user_id)).count
+  end
+
   def client
     Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['TWITTER_API_CONSUMER_KEY']
