@@ -15,7 +15,10 @@
   <tbody>
     <% users.each do |user| %>
       <tr id="twitter_user_id_<%= user.twitter_user.id %>">
-        <td><%= user.twitter_user.name %> (<%= user.twitter_user.decorate.twitter_link %>)</td>
+        <td>
+          <%= image_tag user.twitter_user.profile_image_url_https, class: 'img-circle mr-1' %>
+          <%= user.twitter_user.name %> (<%= user.twitter_user.decorate.twitter_link %>)
+        </td>
         <td class="text-right"><%= user.twitter_user.statuses_count %></td>
         <td class="text-right"><%= user.twitter_user.friends_count %></td>
         <td class="text-right"><%= user.twitter_user.followers_count %></td>
