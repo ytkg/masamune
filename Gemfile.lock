@@ -71,6 +71,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.5.0)
       msgpack (~> 1.0)
+    bootsnap (1.5.0-java)
+      msgpack (~> 1.0)
     buftok (0.2.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -85,7 +87,7 @@ GEM
     chartkick (3.4.2)
     childprocess (3.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     crass (1.0.6)
     database_cleaner (1.8.5)
     database_cleaner-active_record (1.8.0)
@@ -130,9 +132,9 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
-    i18n (1.8.5)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.10.1)
+    jbuilder (2.11.1)
       activesupport (>= 5.0.0)
     listen (3.3.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -150,7 +152,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.2)
+    minitest (5.14.3)
     msgpack (1.3.3)
     msgpack (1.3.3-java)
     msgpack (1.3.3-x64-mingw32)
@@ -329,7 +331,7 @@ GEM
       multipart-post (~> 2.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
-    tzinfo (1.2.7)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
@@ -361,7 +363,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.1)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   java
@@ -379,7 +381,7 @@ DEPENDENCIES
   database_cleaner-active_record
   draper
   factory_bot_rails
-  jbuilder (~> 2.10)
+  jbuilder (~> 2.11)
   listen (>= 3.0.5, < 3.4)
   omniauth-twitter
   pg
