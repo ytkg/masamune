@@ -6,7 +6,7 @@ Twitterアカウント運用支援システム
   <img src="https://img.shields.io/badge/Ruby-v2.7.2-green.svg" alt="ruby version">
 </a>
 <a href="http://rubyonrails.org/">
-  <img src="https://img.shields.io/badge/Rails-v6.0.3.4-brightgreen.svg" alt="rails version">
+  <img src="https://img.shields.io/badge/Rails-v6.0.3.6-brightgreen.svg" alt="rails version">
 </a>
 
 
