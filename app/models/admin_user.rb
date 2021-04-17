@@ -24,13 +24,9 @@ class AdminUser < ApplicationRecord
     end
   end
 
-  def friends_count
-    friends.count
-  end
+  delegate :count, to: :friends, prefix: true
 
-  def followers_count
-    followers.count
-  end
+  delegate :count, to: :followers, prefix: true
 
   def friends_and_followers_count
     friends.where(twitter_user_id: followers.select(:twitter_user_id)).count
