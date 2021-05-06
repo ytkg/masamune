@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'chartkick'
 gem 'omniauth-twitter'
+gem 'omniauth-rails_csrf_protection'
 gem 'slack-notifier'
 gem 'twitter'
 
