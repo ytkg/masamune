@@ -11,7 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.2
     - name: Rubocop Linter
-      uses: andrewmcodes/rubocop-linter-action@v3.1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: reviewdog/action-rubocop@v1
+      with:
+        rubocop_version: gemfile
+        rubocop_extensions: rubocop-rails:gemfile
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
