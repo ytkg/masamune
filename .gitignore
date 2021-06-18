@@ -37,6 +37,3 @@ yarn-debug.log*
 
 # Ignore .env
 .env
-
-# Ignore swap file
-*.swp
