@@ -9,6 +9,7 @@ RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
 
 RUN mkdir /masamune
 WORKDIR /masamune
+COPY .ruby-version /masamune/.ruby-version
 COPY Gemfile /masamune/Gemfile
 COPY Gemfile.lock /masamune/Gemfile.lock
 RUN gem update bundler
