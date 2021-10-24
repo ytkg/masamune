@@ -1,11 +1,11 @@
 FROM ruby:2.7.4
 ENV LANG C.UTF-8
 
-ENV NODE_PATH /usr/lib/nodejs:/usr/share/nodejs
-
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt update -qq && apt install -y nodejs yarnpkg postgresql-client
-RUN ln -s /usr/bin/yarnpkg /usr/bin/yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
+
+RUN apt update -qq && apt install -y nodejs yarn postgresql-client
 
 RUN mkdir /masamune
 WORKDIR /masamune
