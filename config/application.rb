@@ -6,7 +6,6 @@ require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_view/railtie'
 require 'sprockets/railtie'
-require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -30,7 +29,9 @@ module Masamune
       g.stylesheets false
       g.javascripts false
       g.helper false
-      g.test_framework false
     end
+
+    # Don't generate system test files.
+    config.generators.system_tests = nil
   end
 end
