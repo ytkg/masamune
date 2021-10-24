@@ -38,6 +38,7 @@ jobs:
         gem install bundler
         bundle config set path 'vendor/bundle'
         bundle install --jobs 4 --retry 3
+        cp config/database.yml.ci config/database.yml
         bundle exec rails db:create
         bundle exec rails db:migrate
         bundle exec rspec
