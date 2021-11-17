@@ -122,7 +122,7 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
@@ -196,8 +196,8 @@ GEM
       nio4r (~> 2.0)
     puma (5.5.2-java)
       nio4r (~> 2.0)
-    racc (1.5.2)
-    racc (1.5.2-java)
+    racc (1.6.0)
+    racc (1.6.0-java)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -330,7 +330,7 @@ GEM
     unf_ext (0.0.7.7-x64-mingw32)
     unf_ext (0.0.7.7-x86-mingw32)
     unicode-display_width (2.1.0)
-    web-console (4.1.0)
+    web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -345,7 +345,7 @@ GEM
     websocket-driver (0.7.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   java
