@@ -122,9 +122,9 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.10.1)
+    jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -345,7 +345,7 @@ GEM
     websocket-driver (0.7.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   java
@@ -362,7 +362,7 @@ DEPENDENCIES
   database_cleaner-active_record
   draper
   factory_bot_rails
-  jbuilder (~> 2.10)
+  jbuilder (~> 2.11)
   listen (>= 3.0.5, < 3.8)
   omniauth-rails_csrf_protection
   omniauth-twitter
