@@ -1156,10 +1156,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@rails/ujs@^6.0.4":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.4.tgz#b155b0e23b766fe8038cb9bc796efb55ea840c15"
-  integrity sha512-pi6BTIAuMAgfh0tz9jHyKwuzT8HKWlZdfI6/pxcR+NWRuTyN9psYmxskP2QnxFehSkSuvQmQuKv3Hyrs13l3xQ==
+"@rails/ujs@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.0.0.tgz#5331285372956be4d3f2d858cef9904c11ce4b93"
+  integrity sha512-VU/tKKEj0+4QvhxkWBUwINCimtxYjy702ecvUpNUtDukilAsv4fmc/vTH5b/gSNuT5wVRf3h7o27W+JssTu4nQ==
 
 "@rails/webpacker@5.2.1":
   version "5.2.1"
