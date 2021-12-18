@@ -14,7 +14,7 @@ Bundler.require(*Rails.groups)
 module Masamune
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 6.1
 
     config.autoload_paths += %W(#{config.root}/services)
 

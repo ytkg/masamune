@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
@@ -27,8 +27,8 @@ gem 'active_link_to'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'chartkick'
-gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter'
 gem 'slack-notifier'
 gem 'twitter'
 
@@ -51,8 +51,11 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '>= 3.0.5', '< 3.8'
   gem 'web-console', '>= 3.3.0'
+  # Display performance information such as SQL time and flame graphs for each request in your browser.
+  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'listen', '>= 3.0.5', '< 3.8'
+  gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
