@@ -3,21 +3,14 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-
-require("chartkick/chart.js")
-require("admin-lte")
-
-
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import "chartkick/chart.js"
+import "admin-lte"
 import 'bootstrap'
 import 'bootstrap-table'
 import 'admin-lte/plugins/fontawesome-free/css/all.min'
 import '../src/application.scss'
+
+Rails.start()
+Turbolinks.start()
