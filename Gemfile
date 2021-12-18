@@ -27,8 +27,8 @@ gem 'active_link_to'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'chartkick'
-gem 'omniauth-twitter'
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter'
 gem 'slack-notifier'
 gem 'twitter'
 
@@ -54,8 +54,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '>= 3.0.5', '< 3.8'
+  gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
