@@ -27,7 +27,7 @@
         <td class="text-right"><%= user.twitter_user.listed_count %></td>
         <td class="text-right"><%= user.created_at.to_date %></td>
         <td class="text-right">
-          <%= form_with url: follow_friendships_path do |form| %>
+          <%= form_with url: follow_friendships_path, local: false do |form| %>
             <%= form.hidden_field :twitter_id, value: user.twitter_user.id %>
             <%= form.submit 'フォロー', class: 'btn btn-info' %>
           <% end %>

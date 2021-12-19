@@ -3,7 +3,7 @@
   <div class="card">
     <h5 class="card-header">自動フォロー設定</h5>
     <div class="card-body">
-      <%= form_with url: settings_path do |form| %>
+      <%= form_with url: settings_path, local: false do |form| %>
         <div class="form-group custom-control custom-switch">
           <%= form.check_box :auto_follow_enabled, { checked: @settings[:auto_follow][:enabled].present?, class: 'custom-control-input' }, true, nil %>
           <%= form.label :auto_follow_enabled, '自動フォロー', class: 'custom-control-label' %>
