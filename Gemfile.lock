@@ -113,7 +113,7 @@ GEM
       rake
     globalid (1.0.0)
       activesupport (>= 5.0)
-    hashie (4.1.0)
+    hashie (5.0.0)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -126,7 +126,7 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
-    i18n (1.8.11)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -169,7 +169,7 @@ GEM
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
-    omniauth-rails_csrf_protection (1.0.0)
+    omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     omniauth-twitter (1.4.0)
@@ -352,7 +352,7 @@ GEM
     websocket-driver (0.7.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   java
