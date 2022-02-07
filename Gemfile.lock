@@ -126,7 +126,7 @@ GEM
       ffi-compiler (>= 1.0, < 2.0)
     http_parser.rb (0.6.0)
     http_parser.rb (0.6.0-java)
-    i18n (1.8.11)
+    i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -295,7 +295,7 @@ GEM
       tilt
     semantic_range (3.0.0)
     simple_oauth (0.3.1)
-    skylight (5.1.1)
+    skylight (5.2.0)
       activesupport (>= 5.2.0)
     slack-notifier (2.4.0)
     spoon (0.0.6)
@@ -352,7 +352,7 @@ GEM
     websocket-driver (0.7.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   java
