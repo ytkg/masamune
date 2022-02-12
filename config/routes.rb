@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Resque::Server.new, at: "/resque"
+
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#login'

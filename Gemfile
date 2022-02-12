@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.11'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'pg'
+gem 'resque'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'active_link_to'
