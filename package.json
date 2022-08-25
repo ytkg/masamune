@@ -5,7 +5,7 @@
     "@rails/ujs": "^6.0.4",
     "@rails/webpacker": "5.2.1",
     "admin-lte": "^3.1.0",
-    "bootstrap-table": "^1.18.3",
+    "bootstrap-table": "^1.20.2",
     "chartkick": "^4.1.1",
     "node-sass": "^4.14.1",
     "turbolinks": "^5.2.0",
