@@ -16,7 +16,7 @@ jobs:
       with:
         ruby-version: 3.0.3
     - name: Rubocop Linter
-      uses: reviewdog/action-rubocop@v1
+      uses: reviewdog/action-rubocop@v2
       with:
         rubocop_version: gemfile
         rubocop_extensions: rubocop-rails:gemfile
